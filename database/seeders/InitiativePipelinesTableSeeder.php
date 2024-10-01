@@ -14,12 +14,12 @@ class InitiativePipelinesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('initiative_pipelines')->delete();
-        
+
         \DB::table('initiative_pipelines')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'Default Pipeline',
@@ -29,7 +29,7 @@ class InitiativePipelinesTableSeeder extends Seeder
                 'updated_at' => '2024-10-01 08:36:21',
             ),
         ));
-        
-        
+
+
     }
 }

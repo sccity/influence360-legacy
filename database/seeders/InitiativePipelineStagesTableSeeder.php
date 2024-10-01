@@ -58,8 +58,8 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             4 =>
             array (
                 'id' => 5,
-                'code' => 'legislative-monitoring',
-                'name' => 'Legislative Monitoring',
+                'code' => 'monitoring',
+                'name' => 'Monitoring',
                 'probability' => 100,
                 'sort_order' => 5,
                 'initiative_pipeline_id' => 1,
