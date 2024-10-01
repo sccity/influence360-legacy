@@ -10,7 +10,6 @@ use Influence360\Attribute\Traits\CustomAttribute;
 use Influence360\Contact\Models\PersonProxy;
 use Influence360\Email\Models\EmailProxy;
 use Influence360\Initiative\Contracts\Initiative as InitiativeContract;
-use Influence360\Quote\Models\QuoteProxy;
 use Influence360\Tag\Models\TagProxy;
 use Influence360\User\Models\UserProxy;
 
@@ -110,27 +109,11 @@ class Initiative extends Model implements InitiativeContract
     }
 
     /**
-     * Get the products.
-     */
-    public function products()
-    {
-        return $this->hasMany(ProductProxy::modelClass());
-    }
-
-    /**
      * Get the emails.
      */
     public function emails()
     {
         return $this->hasMany(EmailProxy::modelClass());
-    }
-
-    /**
-     * The quotes that belong to the initiative.
-     */
-    public function quotes()
-    {
-        return $this->belongsToMany(QuoteProxy::modelClass(), 'initiative_quotes');
     }
 
     /**

@@ -8,8 +8,6 @@ use Influence360\Admin\Helpers\Reporting\Activity;
 use Influence360\Admin\Helpers\Reporting\Initiative;
 use Influence360\Admin\Helpers\Reporting\Organization;
 use Influence360\Admin\Helpers\Reporting\Person;
-use Influence360\Admin\Helpers\Reporting\Product;
-use Influence360\Admin\Helpers\Reporting\Quote;
 
 class Dashboard
 {
@@ -21,10 +19,9 @@ class Dashboard
     public function __construct(
         protected Initiative $initiativeReporting,
         protected Activity $activityReporting,
-        protected Product $productReporting,
         protected Person $personReporting,
         protected Organization $organizationReporting,
-        protected Quote $quoteReporting,
+
     ) {}
 
     /**
@@ -47,7 +44,6 @@ class Dashboard
             'total_initiatives'           => $this->initiativeReporting->getTotalInitiativesProgress(),
             'average_initiative_value'    => $this->initiativeReporting->getAverageInitiativeValueProgress(),
             'average_initiatives_per_day' => $this->initiativeReporting->getAverageInitiativesPerDayProgress(),
-            'total_quotations'      => $this->quoteReporting->getTotalQuotesProgress(),
             'total_persons'         => $this->personReporting->getTotalPersonsProgress(),
             'total_organizations'   => $this->organizationReporting->getTotalOrganizationsProgress(),
         ];

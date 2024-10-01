@@ -42,7 +42,6 @@ class InitiativeRepository extends Repository
     public function __construct(
         protected StageRepository $stageRepository,
         protected PersonRepository $personRepository,
-        protected ProductRepository $productRepository,
         protected AttributeRepository $attributeRepository,
         protected AttributeValueRepository $attributeValueRepository,
         Container $container
@@ -132,15 +131,6 @@ class InitiativeRepository extends Repository
             'entity_id' => $initiative->id,
         ]));
 
-        if (isset($data['products'])) {
-            foreach ($data['products'] as $product) {
-                $this->productRepository->create(array_merge($product, [
-                    'initiative_id' => $initiative->id,
-                    'amount'  => $product['price'] * $product['quantity'],
-                ]));
-            }
-        }
-
         return $initiative;
     }
 
@@ -213,28 +203,6 @@ class InitiativeRepository extends Repository
         $this->attributeValueRepository->save(array_merge($data, [
             'entity_id' => $initiative->id,
         ]));
-
-        $previousProductIds = $initiative->products()->pluck('id');
-
-        if (isset($data['products'])) {
-            foreach ($data['products'] as $productId => $productInputs) {
-                if (Str::contains($productId, 'product_')) {
-                    $this->productRepository->create(array_merge([
-                        'initiative_id' => $initiative->id,
-                    ], $productInputs));
-                } else {
-                    if (is_numeric($index = $previousProductIds->search($productId))) {
-                        $previousProductIds->forget($index);
-                    }
-
-                    $this->productRepository->update($productInputs, $productId);
-                }
-            }
-        }
-
-        foreach ($previousProductIds as $productId) {
-            $this->productRepository->delete($productId);
-        }
 
         return $initiative;
     }

@@ -208,8 +208,6 @@ return [
         Influence360\EmailTemplate\Providers\EmailTemplateServiceProvider::class,
         Influence360\Email\Providers\EmailServiceProvider::class,
         Influence360\Initiative\Providers\InitiativeServiceProvider::class,
-        Influence360\Product\Providers\ProductServiceProvider::class,
-        Influence360\Quote\Providers\QuoteServiceProvider::class,
         Influence360\Tag\Providers\TagServiceProvider::class,
         Influence360\User\Providers\UserServiceProvider::class,
         Influence360\Warehouse\Providers\WarehouseServiceProvider::class,

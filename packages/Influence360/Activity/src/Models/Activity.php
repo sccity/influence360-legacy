@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Influence360\Activity\Contracts\Activity as ActivityContract;
 use Influence360\Contact\Models\PersonProxy;
 use Influence360\Initiative\Models\InitiativeProxy;
-use Influence360\Product\Models\ProductProxy;
 use Influence360\User\Models\UserProxy;
 use Influence360\Warehouse\Models\WarehouseProxy;
 
@@ -91,14 +90,6 @@ class Activity extends Model implements ActivityContract
     public function persons()
     {
         return $this->belongsToMany(PersonProxy::modelClass(), 'person_activities');
-    }
-
-    /**
-     * The initiatives that belong to the activity.
-     */
-    public function products()
-    {
-        return $this->belongsToMany(ProductProxy::modelClass(), 'product_activities');
     }
 
     /**

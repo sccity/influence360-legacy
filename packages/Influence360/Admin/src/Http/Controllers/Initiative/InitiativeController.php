@@ -21,7 +21,6 @@ use Influence360\Contact\Repositories\PersonRepository;
 use Influence360\DataGrid\Enums\DateRangeOptionEnum;
 use Influence360\Initiative\Repositories\InitiativeRepository;
 use Influence360\Initiative\Repositories\PipelineRepository;
-use Influence360\Initiative\Repositories\ProductRepository;
 use Influence360\Initiative\Repositories\SourceRepository;
 use Influence360\Initiative\Repositories\StageRepository;
 use Influence360\Initiative\Repositories\TypeRepository;
@@ -43,7 +42,6 @@ class InitiativeController extends Controller
         protected PipelineRepository $pipelineRepository,
         protected StageRepository $stageRepository,
         protected InitiativeRepository $initiativeRepository,
-        protected ProductRepository $productRepository,
     ) {
         request()->request->add(['entity_type' => 'initiatives']);
     }
@@ -396,56 +394,6 @@ class InitiativeController extends Controller
 
                 Event::dispatch('initiative.delete.after', $initiative->id);
             }
-
-            return response()->json([
-                'message' => trans('admin::app.initiatives.destroy-success'),
-            ]);
-        } catch (\Exception $exception) {
-            return response()->json([
-                'message' => trans('admin::app.initiatives.destroy-failed'),
-            ]);
-        }
-    }
-
-    /**
-     * Attach product to initiative.
-     */
-    public function addProduct(int $initiativeId): JsonResponse
-    {
-        $product = $this->productRepository->updateOrCreate(
-            [
-                'initiative_id'    => $initiativeId,
-                'product_id' => request()->input('product_id'),
-            ],
-            array_merge(
-                request()->all(),
-                [
-                    'initiative_id' => $initiativeId,
-                    'amount'  => request()->input('price') * request()->input('quantity'),
-                ],
-            )
-        );
-
-        return response()->json([
-            'data'    => $product,
-            'message' => trans('admin::app.initiatives.update-success'),
-        ]);
-    }
-
-    /**
-     * Remove product attached to initiative.
-     */
-    public function removeProduct(int $id): JsonResponse
-    {
-        try {
-            Event::dispatch('initiative.product.delete.before', $id);
-
-            $this->productRepository->deleteWhere([
-                'initiative_id'    => $id,
-                'product_id' => request()->input('product_id'),
-            ]);
-
-            Event::dispatch('initiative.product.delete.after', $id);
 
             return response()->json([
                 'message' => trans('admin::app.initiatives.destroy-success'),

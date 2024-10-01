@@ -47,8 +47,6 @@ class AdminServiceProvider extends ServiceProvider
             'initiatives'         => \Influence360\Initiative\Models\Initiative::class,
             'organizations' => \Influence360\Contact\Models\Organization::class,
             'persons'       => \Influence360\Contact\Models\Person::class,
-            'products'      => \Influence360\Product\Models\Product::class,
-            'quotes'        => \Influence360\Quote\Models\Quote::class,
             'warehouses'    => \Influence360\Warehouse\Models\Warehouse::class,
         ]);
 

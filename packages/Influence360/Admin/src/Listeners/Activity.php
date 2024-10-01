@@ -5,7 +5,6 @@ namespace Influence360\Admin\Listeners;
 use Influence360\Activity\Contracts\Activity as ActivityContract;
 use Influence360\Contact\Repositories\PersonRepository;
 use Influence360\Initiative\Repositories\InitiativeRepository;
-use Influence360\Product\Repositories\ProductRepository;
 use Influence360\Warehouse\Repositories\WarehouseRepository;
 
 class Activity
@@ -18,7 +17,6 @@ class Activity
     public function __construct(
         protected InitiativeRepository $initiativeRepository,
         protected PersonRepository $personRepository,
-        protected ProductRepository $productRepository,
         protected WarehouseRepository $warehouseRepository
     ) {}
 
