@@ -24,14 +24,37 @@ return [
     ],
 
     /**
-     * Quotes.
+     * Contacts.
      */
     [
-        'key'        => 'quotes',
-        'name'       => 'admin::app.layouts.quotes',
-        'route'      => 'admin.quotes.index',
+        'key'        => 'contacts',
+        'name'       => 'admin::app.layouts.contacts',
+        'route'      => 'admin.contacts.persons.index',
         'sort'       => 3,
-        'icon-class' => 'icon-quote',
+        'icon-class' => 'icon-contact',
+    ], [
+        'key'        => 'contacts.persons',
+        'name'       => 'admin::app.layouts.persons',
+        'route'      => 'admin.contacts.persons.index',
+        'sort'       => 1,
+        'icon-class' => '',
+    ], [
+        'key'        => 'contacts.organizations',
+        'name'       => 'admin::app.layouts.organizations',
+        'route'      => 'admin.contacts.organizations.index',
+        'sort'       => 2,
+        'icon-class' => '',
+    ],
+
+    /**
+     * Activities.
+     */
+    [
+        'key'        => 'activities',
+        'name'       => 'admin::app.layouts.activities',
+        'route'      => 'admin.activities.index',
+        'sort'       => 4,
+        'icon-class' => 'icon-activity',
     ],
 
     /**
@@ -42,7 +65,7 @@ return [
         'name'       => 'admin::app.layouts.mail.title',
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'compose'],
-        'sort'       => 4,
+        'sort'       => 5,
         'icon-class' => 'icon-mail',
     ], [
         'key'        => 'mail.inbox',
@@ -89,58 +112,13 @@ return [
     // ]
 
     /**
-     * Activities.
-     */
-    [
-        'key'        => 'activities',
-        'name'       => 'admin::app.layouts.activities',
-        'route'      => 'admin.activities.index',
-        'sort'       => 5,
-        'icon-class' => 'icon-activity',
-    ],
-
-    /**
-     * Contacts.
-     */
-    [
-        'key'        => 'contacts',
-        'name'       => 'admin::app.layouts.contacts',
-        'route'      => 'admin.contacts.persons.index',
-        'sort'       => 6,
-        'icon-class' => 'icon-contact',
-    ], [
-        'key'        => 'contacts.persons',
-        'name'       => 'admin::app.layouts.persons',
-        'route'      => 'admin.contacts.persons.index',
-        'sort'       => 1,
-        'icon-class' => '',
-    ], [
-        'key'        => 'contacts.organizations',
-        'name'       => 'admin::app.layouts.organizations',
-        'route'      => 'admin.contacts.organizations.index',
-        'sort'       => 2,
-        'icon-class' => '',
-    ],
-
-    /**
-     * Products.
-     */
-    [
-        'key'        => 'products',
-        'name'       => 'admin::app.layouts.products',
-        'route'      => 'admin.products.index',
-        'sort'       => 7,
-        'icon-class' => 'icon-product',
-    ],
-
-    /**
      * Settings.
      */
     [
         'key'        => 'settings',
         'name'       => 'admin::app.layouts.settings',
         'route'      => 'admin.settings.index',
-        'sort'       => 8,
+        'sort'       => 6,
         'icon-class' => 'icon-setting',
     ], [
         'key'        => 'settings.user',
@@ -270,7 +248,7 @@ return [
         'key'        => 'configuration',
         'name'       => 'admin::app.layouts.configuration',
         'route'      => 'admin.configuration.index',
-        'sort'       => 9,
+        'sort'       => 7,
         'icon-class' => 'icon-configuration',
     ],
 ];
