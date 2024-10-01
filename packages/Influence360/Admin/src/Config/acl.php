@@ -31,31 +31,6 @@ return [
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.initiatives.delete', 'admin.initiatives.mass_delete'],
         'sort'  => 4,
-    ], [
-        'key'   => 'quotes',
-        'name'  => 'admin::app.acl.quotes',
-        'route' => 'admin.quotes.index',
-        'sort'  => 3,
-    ], [
-        'key'   => 'quotes.create',
-        'name'  => 'admin::app.acl.create',
-        'route' => ['admin.quotes.create', 'admin.quotes.store'],
-        'sort'  => 1,
-    ], [
-        'key'   => 'quotes.edit',
-        'name'  => 'admin::app.acl.edit',
-        'route' => ['admin.quotes.edit', 'admin.quotes.update'],
-        'sort'  => 2,
-    ], [
-        'key'   => 'quotes.print',
-        'name'  => 'admin::app.acl.print',
-        'route' => 'admin.quotes.print',
-        'sort'  => 3,
-    ], [
-        'key'   => 'quotes.delete',
-        'name'  => 'admin::app.acl.delete',
-        'route' => ['admin.quotes.delete', 'admin.quotes.mass_delete'],
-        'sort'  => 4,
     ],  [
         'key'   => 'mail',
         'name'  => 'admin::app.acl.mail',
@@ -180,31 +155,6 @@ return [
         'key'   => 'contacts.organizations.delete',
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.contacts.organizations.delete', 'admin.contacts.organizations.mass_delete'],
-        'sort'  => 3,
-    ],  [
-        'key'   => 'products',
-        'name'  => 'admin::app.acl.products',
-        'route' => 'admin.products.index',
-        'sort'  => 7,
-    ], [
-        'key'   => 'products.create',
-        'name'  => 'admin::app.acl.create',
-        'route' => ['admin.products.create', 'admin.products.store'],
-        'sort'  => 1,
-    ], [
-        'key'   => 'products.edit',
-        'name'  => 'admin::app.acl.edit',
-        'route' => ['admin.products.edit', 'admin.products.update'],
-        'sort'  => 2,
-    ], [
-        'key'   => 'products.delete',
-        'name'  => 'admin::app.acl.delete',
-        'route' => ['admin.products.delete', 'admin.products.mass_delete'],
-        'sort'  => 3,
-    ], [
-        'key'   => 'products.view',
-        'name'  => 'admin::app.acl.view',
-        'route' => 'admin.products.view',
         'sort'  => 3,
     ], [
         'key'   => 'settings',

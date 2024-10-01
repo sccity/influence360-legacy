@@ -138,7 +138,10 @@
             <div class="center-box">
                 <div class="adjacent-center">
                     <div class="brand-logo">
-                        <img src="{{ asset('vendor/influence360/admin/assets/images/logo.svg') }}" alt="{{ config('app.name') }}"/>
+                        <span id="logo-text" class="h-10 text-2xl" style="color: rgb(14, 144, 217);">
+                            <span class="font-semibold">Influence</span>
+                            <span class="font-bold">360</span>
+                        </span>
                     </div>
 
                     <label>{{ __('Oops!') }}</label>

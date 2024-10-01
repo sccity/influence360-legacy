@@ -240,15 +240,4 @@ return [
         'sort'       => 1,
         'icon-class' => 'icon-settings-tag',
     ],
-
-    /**
-     * Configuration.
-     */
-    [
-        'key'        => 'configuration',
-        'name'       => 'admin::app.layouts.configuration',
-        'route'      => 'admin.configuration.index',
-        'sort'       => 7,
-        'icon-class' => 'icon-configuration',
-    ],
 ];

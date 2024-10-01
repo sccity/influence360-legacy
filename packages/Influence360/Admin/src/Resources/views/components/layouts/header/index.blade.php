@@ -2,14 +2,11 @@
     <!-- logo -->
     <div class="flex items-center gap-1.5">
         <i class="icon-menu hidden cursor-pointer rounded-md p-1.5 text-2xl hover:bg-gray-100 dark:hover:bg-gray-950 max-lg:block"></i>
-
         <a href="{{ route('admin.dashboard.index') }}">
-            <img
-                class="h-10"
-                src="{{ request()->cookie('dark_mode') ? vite()->asset('images/dark-logo.svg') : vite()->asset('images/logo.svg') }}"
-                id="logo-image"
-                alt="{{ config('app.name') }}"
-            />
+            <span id="logo-text" class="h-10 text-2xl" style="color: rgb(14, 144, 217);">
+                <span class="font-semibold">Influence</span>
+                <span class="font-bold">360</span>
+            </span>
         </a>
     </div>
 
@@ -30,11 +27,9 @@
         <!-- Quick create section -->
         <div>
             @if (bouncer()->hasPermission('initiatives.create')
-                || bouncer()->hasPermission('quotes.create')
                 || bouncer()->hasPermission('mail.create')
                 || bouncer()->hasPermission('contacts.persons.create')
                 || bouncer()->hasPermission('contacts.organizations.create')
-                || bouncer()->hasPermission('products.create')
                 || bouncer()->hasPermission('settings.automation.attributes.create')
                 || bouncer()->hasPermission('settings.user.roles.create')
                 || bouncer()->hasPermission('settings.user.users.create')
@@ -59,19 +54,6 @@
                                                 <i class="icon-initiatives text-2xl text-gray-600"></i>
 
                                                 <span class="font-medium dark:text-gray-300">@lang('admin::app.layouts.initiative')</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-
-                                <!-- Link to create new Quotes -->
-                                @if (bouncer()->hasPermission('quotes.create'))
-                                    <div class="rounded-lg bg-white p-2 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-950">
-                                        <a href="{{ route('admin.quotes.create') }}">
-                                            <div class="flex flex-col gap-1">
-                                                <i class="icon-quote text-2xl text-gray-600"></i>
-
-                                                <span class="font-medium dark:text-gray-300">@lang('admin::app.layouts.quote')</span>
                                             </div>
                                         </a>
                                     </div>
@@ -111,19 +93,6 @@
                                                 <i class="icon-organization text-2xl text-gray-600"></i>
 
                                                 <span class="font-medium dark:text-gray-300">@lang('admin::app.layouts.organization')</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-
-                                <!-- Link to create new Products -->
-                                @if (bouncer()->hasPermission('products.create'))
-                                    <div class="rounded-lg bg-white p-2 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-950">
-                                        <a href="{{ route('admin.products.create') }}">
-                                            <div class="flex flex-col gap-1">
-                                                <i class="icon-product text-2xl text-gray-600"></i>
-
-                                                <span class="font-medium dark:text-gray-300">@lang('admin::app.layouts.product')</span>
                                             </div>
                                         </a>
                                     </div>
@@ -281,67 +250,6 @@
                 </div>
 
                 <!-- Searched Results -->
-                <template v-if="activeTab == 'products'">
-                    <template v-if="isLoading">
-                        <x-admin::shimmer.header.mega-search.products />
-                    </template>
-
-                    <template v-else>
-                        <div class="grid max-h-[400px] overflow-y-auto">
-                            <template v-for="product in searchedResults.products">
-                                <a
-                                    :href="'{{ route('admin.products.view', ':id') }}'.replace(':id', product.id)"
-                                    class="flex cursor-pointer justify-between gap-2.5 border-b border-slate-300 p-4 last:border-b-0 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-950"
-                                >
-                                    <!-- Left Information -->
-                                    <div class="flex gap-2.5">
-                                        <!-- Details -->
-                                        <div class="grid place-content-start gap-1.5">
-                                            <p class="text-base font-semibold text-gray-600 dark:text-gray-300">
-                                                @{{ product.name }}
-                                            </p>
-
-                                            <p class="text-gray-500">
-                                                @{{ "@lang(':sku')".replace(':sku', product.sku) }}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right Information -->
-                                    <div class="grid place-content-center gap-1 text-right">
-                                        <!-- Formatted Price -->
-                                        <p class="font-semibold text-gray-600 dark:text-gray-300">
-                                            @{{ $admin.formatPrice(product.price) }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </template>
-
-                        </div>
-
-                        <div class="flex border-t p-3 dark:border-gray-800">
-                            <template v-if="searchedResults.products.length">
-                                <a
-                                    :href="'{{ route('admin.products.index') }}?search=:query'.replace(':query', searchTerm)"
-                                    class="cursor-pointer text-xs font-semibold text-brandColor transition-all hover:underline"
-                                >
-
-                                    @{{ `@lang('admin::app.components.layouts.header.mega-search.explore-all-matching-products')`.replace(':query', searchTerm).replace(':count', searchedResults.products.length) }}
-                                </a>
-                            </template>
-
-                            <template v-else>
-                                <a
-                                    href="{{ route('admin.products.index') }}"
-                                    class="cursor-pointer text-xs font-semibold text-brandColor transition-all hover:underline"
-                                >
-                                    @lang('admin::app.components.layouts.header.mega-search.explore-all-products')
-                                </a>
-                            </template>
-                        </div>
-                    </template>
-                </template>
-
                 <template v-if="activeTab == 'initiatives'">
                     <template v-if="isLoading">
                         <x-admin::shimmer.header.mega-search.initiatives />
@@ -451,57 +359,6 @@
                         </div>
                     </template>
                 </template>
-
-                <template v-if="activeTab == 'quotes'">
-                    <template v-if="isLoading">
-                        <x-admin::shimmer.header.mega-search.quotes />
-                    </template>
-
-                    <template v-else>
-                        <div class="grid max-h-[400px] overflow-y-auto">
-                            <template v-for="quote in searchedResults.quotes">
-                                <a
-                                    :href="'{{ route('admin.quotes.edit', ':id') }}'.replace(':id', quote.id)"
-                                    class="flex cursor-pointer justify-between gap-2.5 border-b border-slate-300 p-4 last:border-b-0 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-950"
-                                >
-                                    <!-- Left Information -->
-                                    <div class="flex gap-2.5">
-                                        <!-- Details -->
-                                        <div class="grid place-content-start gap-1.5">
-                                            <p class="text-base font-semibold text-gray-600 dark:text-gray-300">
-                                                @{{ quote.subject }}
-                                            </p>
-
-                                            <p class="text-gray-500">
-                                                @{{ quote.description }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </template>
-                        </div>
-
-                        <div class="flex border-t p-3 dark:border-gray-800">
-                            <template v-if="searchedResults.quotes.length">
-                                <a
-                                    :href="'{{ route('admin.quotes.index') }}?search=:query'.replace(':query', searchTerm)"
-                                    class="cursor-pointer text-xs font-semibold text-brandColor transition-all hover:underline"
-                                >
-                                    @{{ `@lang('admin::app.components.layouts.header.mega-search.explore-all-matching-quotes')`.replace(':query', searchTerm).replace(':count', searchedResults.quotes.length) }}
-                                </a>
-                            </template>
-
-                            <template v-else>
-                                <a
-                                    href="{{ route('admin.quotes.index') }}"
-                                    class="cursor-pointer text-xs font-semibold text-brandColor transition-all hover:underline"
-                                >
-                                    @lang('admin::app.components.layouts.header.mega-search.explore-all-quotes')
-                                </a>
-                            </template>
-                        </div>
-                    </template>
-                </template>
             </div>
         </div>
     </script>
@@ -538,52 +395,6 @@
                             ],
                         },
 
-                        quotes: {
-                            key: 'quotes',
-                            title: "@lang('admin::app.components.layouts.header.mega-search.tabs.quotes')",
-                            is_active: false,
-                            endpoint: "{{ route('admin.quotes.search') }}",
-                            query_params: [
-                                {
-                                    search: 'subject',
-                                    searchFields: 'subject:like',
-                                },
-                                {
-                                    search: 'description',
-                                    searchFields: 'description:like',
-                                },
-                                {
-                                    search: 'user.name',
-                                    searchFields: 'user.name:like',
-                                },
-                                {
-                                    search: 'person.name',
-                                    searchFields: 'person.name:like',
-                                },
-                            ],
-                        },
-
-                        products: {
-                            key: 'products',
-                            title: "@lang('admin::app.components.layouts.header.mega-search.tabs.products')",
-                            is_active: false,
-                            endpoint: "{{ route('admin.products.search') }}",
-                            query_params: [
-                                {
-                                    search: 'name',
-                                    searchFields: 'name:like',
-                                },
-                                {
-                                    search: 'sku',
-                                    searchFields: 'sku:like',
-                                },
-                                {
-                                    search: 'description',
-                                    searchFields: 'description:like',
-                                },
-                            ],
-                        },
-
                         persons: {
                             key: 'persons',
                             title: "@lang('admin::app.components.layouts.header.mega-search.tabs.persons')",
@@ -616,8 +427,6 @@
 
                     searchedResults: {
                         initiatives: [],
-                        quotes: [],
-                        products: [],
                         persons: []
                     },
 
@@ -708,16 +517,6 @@
     <script type="module">
         app.component('v-dark', {
             template: '#v-dark-template',
-
-            data() {
-                return {
-                    isDarkMode: {{ request()->cookie('dark_mode') ?? 0 }},
-
-                    logo: "{{ vite()->asset('images/logo.svg') }}",
-
-                    dark_logo: "{{ vite()->asset('images/dark-logo.svg') }}",
-                };
-            },
 
             methods: {
                 toggle() {

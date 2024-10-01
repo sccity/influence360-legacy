@@ -49,25 +49,10 @@
                                     </a>
                                 @endif
                             </div>
-
-                            <!-- Stage Total Initiatives and Amount -->
-                            <div class="flex items-center justify-between gap-2">
-                                <span class="text-xs font-medium dark:text-white">
-                                    @{{ $admin.formatPrice(stage.initiative_value) }}
-                                </span>
-
-                                <!-- Progress Bar -->
-                                <div class="h-1 w-36 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-800">
-                                    <div
-                                        class="h-1 bg-green-500"
-                                        :style="{ width: (stage.initiative_value / totalStagesAmount) * 100 + '%' }"
-                                    ></div>
-                                </div>
-                            </div>
                         </div>
 
                         {!! view_render_event('admin.initiatives.index.kanban.content.stage.header.after') !!}
-                       
+
                         {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.before') !!}
 
                         <!-- Draggable Stage Initiative Cards -->
@@ -84,26 +69,16 @@
                             @change="updateStage(stage, $event)"
                         >
                             <template #header>
-                                <div 
+                                <div
                                     class="flex flex-col items-center justify-center"
                                     v-if="! stage.initiatives.data.length"
                                 >
                                     <img
                                         class="dark:mix-blend-exclusion dark:invert"
-                                        src="{{ vite()->asset('images/empty-placeholders/pipedrive.svg') }}"    
+                                        src="{{ vite()->asset('images/empty-placeholders/pipedrive.svg') }}"
                                     >
 
                                     <div class="flex flex-col items-center gap-4">
-                                        <div class="flex flex-col items-center gap-2">
-                                            <p class="text-xl font-semibold dark:text-white">
-                                                @lang('admin::app.initiatives.index.kanban.empty-list')
-                                            </p>
-
-                                            <p class="text-gray-400 dark:text-gray-400">
-                                                @lang('admin::app.initiatives.index.kanban.empty-list-description')
-                                            </p>
-                                        </div>
-
                                         @if (bouncer()->hasPermission('initiatives.create'))
                                             <a
                                                 :href="'{{ route('admin.initiatives.create') }}' + '?stage_id=' + stage.id"
@@ -130,7 +105,7 @@
                                     <div class="flex items-start justify-between">
                                         <div class="flex items-center gap-1">
                                             <x-admin::avatar ::name="element.person.name" />
-                                  
+
                                             <div class="flex flex-col gap-0.5">
                                                 <span class="text-xs font-medium">
                                                     @{{ element.person.name }}
@@ -175,12 +150,8 @@
                                             v-if="element.user"
                                         >
                                             <span class="icon-settings-user text-sm"></span>
-                                            
-                                            @{{ element.user.name }}
-                                        </div>
 
-                                        <div class="rounded-xl bg-gray-200 px-2 py-1 text-xs font-medium dark:bg-gray-800 dark:text-white">
-                                            @{{ element.formatted_initiative_value }}
+                                            @{{ element.user.name }}
                                         </div>
 
                                         <div class="rounded-xl bg-gray-200 px-2 py-1 text-xs font-medium dark:bg-gray-800 dark:text-white">

@@ -111,8 +111,6 @@
                 :email-detach-endpoint="route('admin.initiatives.emails.detach', $initiative->id)"
                 :extra-types="[
                     ['name' => 'description', 'label' => trans('admin::app.initiatives.view.tabs.description')],
-                    ['name' => 'products', 'label' => trans('admin::app.initiatives.view.tabs.products')],
-                    ['name' => 'quotes', 'label' => trans('admin::app.initiatives.view.tabs.quotes')],
                 ]"
             >
                 <!-- Description -->

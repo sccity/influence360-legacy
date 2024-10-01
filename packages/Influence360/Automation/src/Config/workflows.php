@@ -53,22 +53,5 @@ return [
                 ],
             ],
         ],
-
-        'quotes' => [
-            'name'   => 'Quotes',
-            'class'  => 'Influence360\Automation\Helpers\Entity\Quote',
-            'events' => [
-                [
-                    'event' => 'quote.create.after',
-                    'name'  => 'Created',
-                ], [
-                    'event' => 'quote.update.after',
-                    'name'  => 'Updated',
-                ], [
-                    'event' => 'quote.delete.before',
-                    'name'  => 'Deleted',
-                ],
-            ],
-        ],
     ],
 ];

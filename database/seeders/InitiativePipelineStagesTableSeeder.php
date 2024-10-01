@@ -21,7 +21,7 @@ class InitiativePipelineStagesTableSeeder extends Seeder
         \DB::table('initiative_pipeline_stages')->insert(array (
             0 =>
             array (
-                'id' => 2,
+                'id' => 1,
                 'code' => 'issue-identification',
                 'name' => 'Issue Identification',
                 'probability' => 100,
@@ -30,7 +30,7 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             ),
             1 =>
             array (
-                'id' => 3,
+                'id' => 2,
                 'code' => 'research-analysis',
                 'name' => 'Research & Analysis',
                 'probability' => 100,
@@ -39,7 +39,7 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             ),
             2 =>
             array (
-                'id' => 4,
+                'id' => 3,
                 'code' => 'strategy-development',
                 'name' => 'Strategy Development',
                 'probability' => 100,
@@ -48,7 +48,7 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             ),
             3 =>
             array (
-                'id' => 7,
+                'id' => 4,
                 'code' => 'advocacy',
                 'name' => 'Advocacy',
                 'probability' => 100,
@@ -57,7 +57,7 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             ),
             4 =>
             array (
-                'id' => 8,
+                'id' => 5,
                 'code' => 'legislative-monitoring',
                 'name' => 'Legislative Monitoring',
                 'probability' => 100,
@@ -66,11 +66,20 @@ class InitiativePipelineStagesTableSeeder extends Seeder
             ),
             5 =>
             array (
-                'id' => 5,
-                'code' => 'complete',
-                'name' => 'Complete',
+                'id' => 6,
+                'code' => 'won',
+                'name' => 'Won',
                 'probability' => 100,
                 'sort_order' => 6,
+                'initiative_pipeline_id' => 1,
+            ),
+            6 =>
+            array (
+                'id' => 7,
+                'code' => 'lost',
+                'name' => 'Lost',
+                'probability' => 100,
+                'sort_order' => 7,
                 'initiative_pipeline_id' => 1,
             ),
         ));

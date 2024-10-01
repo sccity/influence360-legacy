@@ -15,11 +15,10 @@
                 <!-- Email Header -->
                 <div style="margin-bottom: 45px;">
                     <a href="{{ config('app.url') }}">
-                        <img
-                            src="{{ vite()->asset('images/logo.svg') }}"
-                            alt="{{ config('app.name') }}"
-                            style="height: 40px; width: 110px;"
-                        />
+                        <span id="logo-text" class="h-10 text-2xl" style="color: rgb(14, 144, 217);">
+                            <span class="font-semibold">Influence</span>
+                            <span class="font-bold">360</span>
+                        </span>
                     </a>
                 </div>
 
