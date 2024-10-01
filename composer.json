@@ -1,0 +1,96 @@
+{
+    "name": "sccity/influence360",
+    "type": "project",
+    "description": "Influence360",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "barryvdh/laravel-dompdf": "^2.0.0",
+        "diglactic/laravel-breadcrumbs": "^8.0",
+        "doctrine/dbal": "^3.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "khaled.alshamaa/ar-php": "^6.3",
+        "konekt/concord": "^1.10",
+        "laravel/framework": "^10.0",
+        "laravel/sanctum": "^3.2",
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "^4.5",
+        "maatwebsite/excel": "^3.1",
+        "mpdf/mpdf": "^8.2",
+        "prettus/l5-repository": "^2.7.9"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
+        "fakerphp/faker": "^1.9.1",
+        "kitloong/laravel-migrations-generator": "^7.0",
+        "krayin/krayin-package-generator": "dev-master",
+        "laravel/pint": "^1.16",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^7.0",
+        "orangehill/iseed": "^3.0",
+        "pestphp/pest": "^2.6",
+        "pestphp/pest-plugin-laravel": "^2.1",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+            "Influence360\\Activity\\": "packages/Influence360/Activity/src",
+            "Influence360\\Admin\\": "packages/Influence360/Admin/src",
+            "Influence360\\Attribute\\": "packages/Influence360/Attribute/src",
+            "Influence360\\Contact\\": "packages/Influence360/Contact/src",
+            "Influence360\\Core\\": "packages/Influence360/Core/src",
+            "Influence360\\Email\\": "packages/Influence360/Email/src",
+            "Influence360\\EmailTemplate\\": "packages/Influence360/EmailTemplate/src",
+            "Influence360\\Lead\\": "packages/Influence360/Lead/src",
+            "Influence360\\Product\\": "packages/Influence360/Product/src",
+            "Influence360\\Quote\\": "packages/Influence360/Quote/src",
+            "Influence360\\Tag\\": "packages/Influence360/Tag/src",
+            "Influence360\\User\\": "packages/Influence360/User/src",
+            "Influence360\\Warehouse\\": "packages/Influence360/Warehouse/src",
+            "Influence360\\WebForm\\": "packages/Influence360/WebForm/src",
+            "Influence360\\Automation\\": "packages/Influence360/Automation/src",
+            "Influence360\\DataGrid\\": "packages/Influence360/DataGrid/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}

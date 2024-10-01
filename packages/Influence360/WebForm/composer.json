@@ -1,0 +1,25 @@
+{
+    "name": "krayin/laravel-webform",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jitendra Singh",
+            "email": "jitendra@influence360.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Influence360\\WebForm\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Influence360\\WebForm\\Providers\\WebFormServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,28 @@
+{
+    "name": "krayin/laravel-contact",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jitendra Singh",
+            "email": "jitendra@influence360.com"
+        }
+    ],
+    "require": {
+        "krayin/laravel-attribute": "^1.0",
+        "krayin/laravel-core": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Influence360\\Contact\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Influence360\\Contact\\Providers\\ContactServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
