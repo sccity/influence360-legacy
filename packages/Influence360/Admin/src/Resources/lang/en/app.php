@@ -2,8 +2,8 @@
 
 return [
     'acl' => [
-        'leads'           => 'Leads',
-        'lead'            => 'Lead',
+        'initiatives'           => 'Initiatives',
+        'initiative'            => 'Initiative',
         'quotes'          => 'Quotes',
         'mail'            => 'Mail',
         'inbox'           => 'Inbox',
@@ -364,18 +364,18 @@ return [
                     'title'   => 'Search',
 
                     'tabs' => [
-                        'leads'    => 'Leads',
+                        'initiatives'    => 'Initiatives',
                         'quotes'   => 'Quotes',
                         'persons'  => 'Persons',
                         'products' => 'Products',
                     ],
 
                     'explore-all-products'          => 'Explore all Products',
-                    'explore-all-leads'             => 'Explore all Leads',
+                    'explore-all-initiatives'             => 'Explore all Initiatives',
                     'explore-all-contacts'          => 'Explore all Contacts',
                     'explore-all-quotes'            => 'Explore all Quotes',
                     'explore-all-matching-products' => 'Explore all products matching ":query" (:count)',
-                    'explore-all-matching-leads'    => 'Explore all leads matching ":query" (:count)',
+                    'explore-all-matching-initiatives'    => 'Explore all initiatives matching ":query" (:count)',
                     'explore-all-matching-contacts' => 'Explore all contacts matching ":query" (:count)',
                     'explore-all-matching-quotes'   => 'Explore all quotes matching ":query" (:count)',
                 ],
@@ -466,7 +466,7 @@ return [
             'address-info-info' => 'Information about the address related to quote.',
             'quote-items'       => 'Quote Items',
             'search-products'   => 'Search Products',
-            'link-to-lead'      => 'Link to lead',
+            'link-to-initiative'      => 'Link to initiative',
             'quote-item-info'   => 'Add Product Request for this quote.',
             'quote-name'        => 'Quote name',
             'quantity'          => 'Quantity',
@@ -496,7 +496,7 @@ return [
             'address-info'      => 'Address Information',
             'address-info-info' => 'Information about the address related to quote.',
             'quote-items'       => 'Quote Items',
-            'link-to-lead'      => 'Link to lead',
+            'link-to-initiative'      => 'Link to initiative',
             'quote-item-info'   => 'Add Product Request for this quote.',
             'quote-name'        => 'Quote name',
             'quantity'          => 'Quantity',
@@ -878,11 +878,11 @@ return [
             ],
 
             'helpers' => [
-                'update-related-leads'       => 'Update related leads',
-                'send-email-to-sales-owner'  => 'Send email to sales owner',
+                'update-related-initiatives'       => 'Update related initiatives',
+                'send-email-to-sales-owner'  => 'Send email to initative owner',
                 'send-email-to-participants' => 'Send email to participants',
                 'add-webhook'                => 'Add Webhook',
-                'update-lead'                => 'Update Lead',
+                'update-initiative'                => 'Update Initiative',
                 'update-person'              => 'Update Person',
                 'send-email-to-person'       => 'Send email to person',
                 'add-tag'                    => 'Add Tag',
@@ -984,7 +984,7 @@ return [
                 'attributes'               => 'Attributes',
                 'attributes-info'          => 'Add custom attributes to the form.',
                 'background-color'         => 'Background Color',
-                'create-lead'              => 'Create Lead',
+                'create-initiative'              => 'Create Initiative',
                 'customize-webform'        => 'Customize Webform',
                 'customize-webform-info'   => 'Customize your web form with element colors of your choosing.',
                 'description'              => 'Description',
@@ -994,7 +994,7 @@ return [
                 'form-submit-button-color' => 'Form Submit Button Color',
                 'form-title-color'         => 'Form Title Color',
                 'general'                  => 'General',
-                'leads'                    => 'Leads',
+                'initiatives'                    => 'Initiatives',
                 'person'                   => 'Person',
                 'save-btn'                 => 'Save Webform',
                 'submit-button-label'      => 'Submit Button Label',
@@ -1016,7 +1016,7 @@ return [
                 'code-snippet'              => 'Code Snippet',
                 'copied'                    => 'Copied',
                 'copy'                      => 'Copy',
-                'create-lead'               => 'Create Lead',
+                'create-initiative'               => 'Create Initiative',
                 'customize-webform'         => 'Customize Webform',
                 'customize-webform-info'    => 'Customize your web form with element colors of your choosing.',
                 'description'               => 'Description',
@@ -1501,7 +1501,7 @@ return [
                 'id'            => 'ID',
                 'done'          => 'Is Done',
                 'not-done'      => 'Not Done',
-                'lead'          => 'Lead',
+                'initiative'          => 'Initiative',
                 'mass-delete'   => 'Mass Delete',
                 'mass-update'   => 'Mass Update',
                 'schedule-from' => 'Schedule From',
@@ -1530,7 +1530,7 @@ return [
             'schedule_from'   => 'Schedule From',
             'location'        => 'Location',
             'comment'         => 'Comment',
-            'lead'            => 'Lead',
+            'initiative'            => 'Initiative',
             'participants'    => 'Participants',
             'general'         => 'General',
             'persons'         => 'Persons',
@@ -1603,8 +1603,8 @@ return [
             'forward'                    => 'Forward',
             'delete'                     => 'Delete',
             'enter-mails'                => 'Enter email id',
-            'rotten-days'                => 'Lead is rotten for :days days',
-            'search-an-existing-lead'    => 'Search an existing lead',
+            'rotten-days'                => 'Initiative is rotten for :days days',
+            'search-an-existing-initiative'    => 'Search an existing initiative',
             'search-an-existing-contact' => 'Search an existing contact',
             'message'                    => 'Message',
             'add-attachments'            => 'Add Attachments',
@@ -1614,15 +1614,15 @@ return [
             'add-new-contact'            => 'Add New Contact',
             'description'                => 'Description',
             'search'                     => 'Search...',
-            'add-new-lead'               => 'Add New Lead',
+            'add-new-initiative'               => 'Add New Initiative',
             'create-new-contact'         => 'Create New Contact',
             'save-contact'               => 'Save Contact',
-            'create-lead'                => 'Create Lead',
+            'create-initiative'                => 'Create Initiative',
             'linked-contact'             => 'Linked Contact',
             'link-to-contact'            => 'Link To Contact',
-            'link-to-lead'               => 'Link To Lead',
-            'linked-lead'                => 'Linked Lead',
-            'lead-details'               => 'Lead Details',
+            'link-to-initiative'               => 'Link To Initiative',
+            'linked-initiative'                => 'Linked Initiative',
+            'initiative-details'               => 'Initiative Details',
             'contact-person'             => 'Contact Person',
             'product'                    => 'Product',
 
@@ -1649,28 +1649,28 @@ return [
         ],
     ],
 
-    'leads' => [
-        'create-success'    => 'Lead created successfully.',
-        'update-success'    => 'Lead updated successfully.',
-        'destroy-success'   => 'Lead deleted successfully.',
-        'destroy-failed'    => 'Lead can not be deleted.',
+    'initiatives' => [
+        'create-success'    => 'Initiative created successfully.',
+        'update-success'    => 'Initiative updated successfully.',
+        'destroy-success'   => 'Initiative deleted successfully.',
+        'destroy-failed'    => 'Initiative can not be deleted.',
 
         'index' => [
-            'title'      => 'Leads',
-            'create-btn' => 'Create Lead',
+            'title'      => 'Initiatives',
+            'create-btn' => 'Create Initiative',
 
             'datagrid' => [
                 'id'                  => 'ID',
                 'sales-person'        => 'Sales Person',
                 'subject'             => 'Subject',
                 'source'              => 'Source',
-                'lead-value'          => 'Lead Value',
-                'lead-type'           => 'Lead Type',
+                'initiative-value'          => 'Initiative Value',
+                'initiative-type'           => 'Initiative Type',
                 'tag-name'            => 'Tag Name',
                 'contact-person'      => 'Contact Person',
                 'stage'               => 'Stage',
-                'rotten-lead'         => 'Rotten Lead',
-                'expected-close-date' => 'Expected Close Date',
+                'rotten-initiative'         => 'Rotten Initiative',
+                'expected-close-date' => 'Projected Outcome Date',
                 'created-at'          => 'Created At',
                 'no'                  => 'No',
                 'yes'                 => 'Yes',
@@ -1680,21 +1680,21 @@ return [
             ],
 
             'kanban' => [
-                'rotten-days'            => 'Lead is rotten for :days days',
-                'empty-list'             => 'Your Leads List is Empty',
-                'empty-list-description' => 'Create a lead to organize your goals.',
-                'create-lead-btn'        => 'Create Lead',
+                'rotten-days'            => 'Initiative is rotten for :days days',
+                'empty-list'             => 'Your Initiatives List is Empty',
+                'empty-list-description' => 'Create a initiative to organize your goals.',
+                'create-initiative-btn'        => 'Create Initiative',
 
                 'columns' => [
                     'contact-person'      => 'Contact Person',
                     'id'                  => 'ID',
-                    'lead-type'           => 'Lead Type',
-                    'lead-value'          => 'Lead Value',
+                    'initiative-type'           => 'Initiative Type',
+                    'initiative-value'          => 'Initiative Value',
                     'sales-person'        => 'Sales Person',
                     'source'              => 'Source',
                     'title'               => 'Title',
                     'tags'                => 'Tags',
-                    'expected-close-date' => 'Expected Close Date',
+                    'expected-close-date' => 'Projected Outcome Date',
                     'created-at'          => 'Created At',
                 ],
 
@@ -1720,10 +1720,10 @@ return [
         ],
 
         'create' => [
-            'title'          => 'Create Lead',
+            'title'          => 'Create Initiative',
             'save-btn'       => 'Save',
             'details'        => 'Details',
-            'details-info'   => 'Put The Basic Information of the Lead',
+            'details-info'   => 'Put The Basic Information of the Initiative',
             'contact-person' => 'Contact Person',
             'contact-info'   => 'Information About the Contact Person',
             'products'       => 'Products',
@@ -1731,10 +1731,10 @@ return [
         ],
 
         'edit' => [
-            'title'          => 'Edit Lead',
+            'title'          => 'Edit Initiative',
             'save-btn'       => 'Save',
             'details'        => 'Details',
-            'details-info'   => 'Put The Basic Information of the Lead',
+            'details-info'   => 'Put The Basic Information of the Initiative',
             'contact-person' => 'Contact Person',
             'contact-info'   => 'Information About the Contact Person',
             'products'       => 'Products',
@@ -1761,7 +1761,7 @@ return [
         ],
 
         'view' => [
-            'title'       => 'Lead: :title',
+            'title'       => 'Initiative: :title',
             'rotten-days' => ':days Days',
 
             'tabs'        => [
@@ -1771,7 +1771,7 @@ return [
             ],
 
             'attributes' => [
-                'title' => 'About Lead',
+                'title' => 'About Initiative',
             ],
 
             'quotes'=> [
@@ -1787,7 +1787,7 @@ return [
                 'download'        => 'Download',
                 'destroy-success' => 'Quote deleted successfully.',
                 'empty-title'     => 'No Quotes Found',
-                'empty-info'      => 'No Quotes Found for this Lead',
+                'empty-info'      => 'No Quotes Found for this Initiative',
                 'add-btn'         => 'Add Quote',
             ],
 
@@ -1800,7 +1800,7 @@ return [
                 'add-more'     => 'Add More',
                 'total'        => 'Total',
                 'empty-title'  => 'No Products Found',
-                'empty-info'   => 'No Products Found for this Lead',
+                'empty-info'   => 'No Products Found for this Initiative',
                 'add-product'  => 'Add Product',
             ],
 
@@ -1861,19 +1861,19 @@ return [
             ],
 
             'over-all' => [
-                'average-lead-value'    => 'Average Lead Value',
-                'total-leads'           => 'Total Leads',
-                'average-leads-per-day' => 'Average Leads Per Day',
+                'average-initiative-value'    => 'Average Initiative Value',
+                'total-initiatives'           => 'Total Initiatives',
+                'average-initiatives-per-day' => 'Average Initiatives Per Day',
                 'total-quotations'      => 'Total Quotations',
                 'total-persons'         => 'Total Persons',
                 'total-organizations'   => 'Total Organizations',
             ],
 
-            'total-leads' => [
-                'title' => 'Leads',
-                'total' => 'Total Leads',
-                'won'   => 'Won Leads',
-                'lost'  => 'Lost Leads',
+            'total-initiatives' => [
+                'title' => 'Initiatives',
+                'total' => 'Total Initiatives',
+                'won'   => 'Won Initiatives',
+                'lost'  => 'Lost Initiatives',
             ],
 
             'revenue-by-sources' => [
@@ -1900,8 +1900,8 @@ return [
                 'empty-info'  => 'No persons available for selected interval',
             ],
 
-            'open-leads-by-states' => [
-                'title'       => 'Open Leads By States',
+            'open-initiatives-by-states' => [
+                'title'       => 'Open Initiatives By States',
                 'empty-title' => 'No Data Available',
                 'empty-info'  => 'No data available for selected interval',
             ],
@@ -1911,7 +1911,7 @@ return [
     'layouts' => [
         'app-version'          => 'Version : :version',
         'dashboard'            => 'Dashboard',
-        'leads'                => 'Leads',
+        'initiatives'                => 'Initiatives',
         'quotes'               => 'Quotes',
         'quote'                => 'Quote',
         'mail'                 => [
@@ -1942,8 +1942,8 @@ return [
         'roles-info'           => 'Add, edit or delete roles from CRM',
         'users'                => 'Users',
         'users-info'           => 'Add, edit or delete users from CRM',
-        'lead'                 => 'Lead',
-        'lead-info'            => 'Manage all your leads related settings in the CRM',
+        'initiative'                 => 'Initiative',
+        'initiative-info'            => 'Manage all your initiatives related settings in the CRM',
         'pipelines'            => 'Pipelines',
         'pipelines-info'       => 'Add, edit or delete pipelines from CRM',
         'sources'              => 'Sources',

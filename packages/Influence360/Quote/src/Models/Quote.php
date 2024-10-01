@@ -5,7 +5,7 @@ namespace Influence360\Quote\Models;
 use Illuminate\Database\Eloquent\Model;
 use Influence360\Attribute\Traits\CustomAttribute;
 use Influence360\Contact\Models\PersonProxy;
-use Influence360\Lead\Models\LeadProxy;
+use Influence360\Initiative\Models\InitiativeProxy;
 use Influence360\Quote\Contracts\Quote as QuoteContract;
 use Influence360\User\Models\UserProxy;
 
@@ -67,10 +67,10 @@ class Quote extends Model implements QuoteContract
     }
 
     /**
-     * The leads that belong to the quote.
+     * The initiatives that belong to the quote.
      */
-    public function leads()
+    public function initiatives()
     {
-        return $this->belongsToMany(LeadProxy::modelClass(), 'lead_quotes');
+        return $this->belongsToMany(InitiativeProxy::modelClass(), 'initiative_quotes');
     }
 }

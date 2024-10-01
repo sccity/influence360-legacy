@@ -16,8 +16,8 @@ class EventServiceProvider extends ServiceProvider
             'Influence360\Admin\Listeners\Person@linkToEmail',
         ],
 
-        'lead.create.after' => [
-            'Influence360\Admin\Listeners\Lead@linkToEmail',
+        'initiative.create.after' => [
+            'Influence360\Admin\Listeners\Initiative@linkToEmail',
         ],
 
         'activity.create.after' => [

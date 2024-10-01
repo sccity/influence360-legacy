@@ -4,7 +4,7 @@ namespace Influence360\Admin\Listeners;
 
 use Influence360\Activity\Contracts\Activity as ActivityContract;
 use Influence360\Contact\Repositories\PersonRepository;
-use Influence360\Lead\Repositories\LeadRepository;
+use Influence360\Initiative\Repositories\InitiativeRepository;
 use Influence360\Product\Repositories\ProductRepository;
 use Influence360\Warehouse\Repositories\WarehouseRepository;
 
@@ -16,22 +16,22 @@ class Activity
      * @return void
      */
     public function __construct(
-        protected LeadRepository $leadRepository,
+        protected InitiativeRepository $initiativeRepository,
         protected PersonRepository $personRepository,
         protected ProductRepository $productRepository,
         protected WarehouseRepository $warehouseRepository
     ) {}
 
     /**
-     * Link activity to lead or person.
+     * Link activity to initiative or person.
      */
     public function afterUpdateOrCreate(ActivityContract $activity): void
     {
-        if (request()->input('lead_id')) {
-            $lead = $this->leadRepository->find(request()->input('lead_id'));
+        if (request()->input('initiative_id')) {
+            $initiative = $this->initiativeRepository->find(request()->input('initiative_id'));
 
-            if (! $lead->activities->contains($activity->id)) {
-                $lead->activities()->attach($activity->id);
+            if (! $initiative->activities->contains($activity->id)) {
+                $initiative->activities()->attach($activity->id);
             }
         } elseif (request()->input('person_id')) {
             $person = $this->personRepository->find(request()->input('person_id'));

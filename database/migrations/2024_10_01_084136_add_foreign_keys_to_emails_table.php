@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('emails', function (Blueprint $table) {
-            $table->foreign(['lead_id'])->references(['id'])->on('leads')->onUpdate('no action')->onDelete('set null');
+            $table->foreign(['initiative_id'])->references(['id'])->on('initiatives')->onUpdate('no action')->onDelete('set null');
             $table->foreign(['parent_id'])->references(['id'])->on('emails')->onUpdate('no action')->onDelete('cascade');
             $table->foreign(['person_id'])->references(['id'])->on('persons')->onUpdate('no action')->onDelete('set null');
         });
@@ -24,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('emails', function (Blueprint $table) {
-            $table->dropForeign('emails_lead_id_foreign');
+            $table->dropForeign('emails_initiative_id_foreign');
             $table->dropForeign('emails_parent_id_foreign');
             $table->dropForeign('emails_person_id_foreign');
         });

@@ -5,7 +5,7 @@ namespace Influence360\Email\Models;
 use Illuminate\Database\Eloquent\Model;
 use Influence360\Contact\Models\PersonProxy;
 use Influence360\Email\Contracts\Email as EmailContract;
-use Influence360\Lead\Models\LeadProxy;
+use Influence360\Initiative\Models\InitiativeProxy;
 use Influence360\Tag\Models\TagProxy;
 
 class Email extends Model implements EmailContract
@@ -54,7 +54,7 @@ class Email extends Model implements EmailContract
         'reply',
         'person_id',
         'parent_id',
-        'lead_id',
+        'initiative_id',
     ];
 
     /**
@@ -66,11 +66,11 @@ class Email extends Model implements EmailContract
     }
 
     /**
-     * Get the lead.
+     * Get the initiative.
      */
-    public function lead()
+    public function initiative()
     {
-        return $this->belongsTo(LeadProxy::modelClass());
+        return $this->belongsTo(InitiativeProxy::modelClass());
     }
 
     /**
@@ -90,7 +90,7 @@ class Email extends Model implements EmailContract
     }
 
     /**
-     * The tags that belong to the lead.
+     * The tags that belong to the initiative.
      */
     public function tags()
     {

@@ -11,7 +11,7 @@ return [
         \Influence360\DataGrid\Providers\ModuleServiceProvider::class,
         \Influence360\EmailTemplate\Providers\ModuleServiceProvider::class,
         \Influence360\Email\Providers\ModuleServiceProvider::class,
-        \Influence360\Lead\Providers\ModuleServiceProvider::class,
+        \Influence360\Initiative\Providers\ModuleServiceProvider::class,
         \Influence360\Product\Providers\ModuleServiceProvider::class,
         \Influence360\Quote\Providers\ModuleServiceProvider::class,
         \Influence360\Tag\Providers\ModuleServiceProvider::class,

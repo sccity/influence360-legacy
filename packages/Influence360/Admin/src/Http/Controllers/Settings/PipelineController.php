@@ -9,7 +9,7 @@ use Illuminate\View\View;
 use Influence360\Admin\DataGrids\Settings\PipelineDataGrid;
 use Influence360\Admin\Http\Controllers\Controller;
 use Influence360\Admin\Http\Requests\PipelineForm;
-use Influence360\Lead\Repositories\PipelineRepository;
+use Influence360\Initiative\Repositories\PipelineRepository;
 
 class PipelineController extends Controller
 {
@@ -108,9 +108,9 @@ class PipelineController extends Controller
         } else {
             $defaultPipeline = $this->pipelineRepository->getDefaultPipeline();
 
-            $pipeline->leads()->update([
-                'lead_pipeline_id'       => $defaultPipeline->id,
-                'lead_pipeline_stage_id' => $defaultPipeline->stages()->first()->id,
+            $pipeline->initiatives()->update([
+                'initiative_pipeline_id'       => $defaultPipeline->id,
+                'initiative_pipeline_stage_id' => $defaultPipeline->stages()->first()->id,
             ]);
         }
 

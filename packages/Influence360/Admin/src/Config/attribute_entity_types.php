@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'leads'         => [
-        'name'       => 'admin::app.leads.index.title',
-        'repository' => 'Influence360\Lead\Repositories\LeadRepository',
+    'initiatives'         => [
+        'name'       => 'admin::app.initiatives.index.title',
+        'repository' => 'Influence360\Initiative\Repositories\InitiativeRepository',
     ],
 
     'persons'       => [

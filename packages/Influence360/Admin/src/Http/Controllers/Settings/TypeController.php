@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\View\View;
 use Influence360\Admin\DataGrids\Settings\TypeDataGrid;
 use Influence360\Admin\Http\Controllers\Controller;
-use Influence360\Lead\Repositories\TypeRepository;
+use Influence360\Initiative\Repositories\TypeRepository;
 
 class TypeController extends Controller
 {
@@ -36,7 +36,7 @@ class TypeController extends Controller
     public function store(): JsonResponse
     {
         $this->validate(request(), [
-            'name' => ['required', 'unique:lead_types,name'],
+            'name' => ['required', 'unique:initiative_types,name'],
         ]);
 
         Event::dispatch('settings.type.create.before');
@@ -69,7 +69,7 @@ class TypeController extends Controller
     public function update(int $id): JsonResponse
     {
         $this->validate(request(), [
-            'name' => 'required|unique:lead_types,name,'.$id,
+            'name' => 'required|unique:initiative_types,name,'.$id,
         ]);
 
         Event::dispatch('settings.type.update.before', $id);

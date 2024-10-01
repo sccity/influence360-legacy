@@ -14,19 +14,19 @@ class AttributesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('attributes')->delete();
-        
+
         \DB::table('attributes')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 19,
                 'code' => 'title',
                 'name' => 'Title',
                 'type' => 'text',
                 'lookup_type' => NULL,
-                'entity_type' => 'leads',
+                'entity_type' => 'initiatives',
                 'sort_order' => 1,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -36,14 +36,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 20,
                 'code' => 'description',
                 'name' => 'Description',
                 'type' => 'textarea',
                 'lookup_type' => NULL,
-                'entity_type' => 'leads',
+                'entity_type' => 'initiatives',
                 'sort_order' => 2,
                 'validation' => NULL,
                 'is_required' => 0,
@@ -53,14 +53,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 21,
-                'code' => 'lead_value',
-                'name' => 'Lead Value',
+                'code' => 'initiative_value',
+                'name' => 'Initiative Value',
                 'type' => 'price',
                 'lookup_type' => NULL,
-                'entity_type' => 'leads',
+                'entity_type' => 'initiatives',
                 'sort_order' => 3,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -70,14 +70,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 22,
-                'code' => 'lead_source_id',
+                'code' => 'initiative_source_id',
                 'name' => 'Source',
                 'type' => 'select',
-                'lookup_type' => 'lead_sources',
-                'entity_type' => 'leads',
+                'lookup_type' => 'initiative_sources',
+                'entity_type' => 'initiatives',
                 'sort_order' => 4,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -87,14 +87,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 23,
-                'code' => 'lead_type_id',
+                'code' => 'initiative_type_id',
                 'name' => 'Type',
                 'type' => 'select',
-                'lookup_type' => 'lead_types',
-                'entity_type' => 'leads',
+                'lookup_type' => 'initiative_types',
+                'entity_type' => 'initiatives',
                 'sort_order' => 5,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -104,14 +104,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 24,
                 'code' => 'user_id',
-                'name' => 'Sales Owner',
+                'name' => 'Initative Owner',
                 'type' => 'select',
                 'lookup_type' => 'users',
-                'entity_type' => 'leads',
+                'entity_type' => 'initiatives',
                 'sort_order' => 7,
                 'validation' => NULL,
                 'is_required' => 0,
@@ -121,14 +121,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 25,
                 'code' => 'expected_close_date',
-                'name' => 'Expected Close Date',
+                'name' => 'Projected Outcome Date',
                 'type' => 'date',
                 'lookup_type' => NULL,
-                'entity_type' => 'leads',
+                'entity_type' => 'initiatives',
                 'sort_order' => 8,
                 'validation' => NULL,
                 'is_required' => 0,
@@ -138,14 +138,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 26,
-                'code' => 'lead_pipeline_id',
+                'code' => 'initiative_pipeline_id',
                 'name' => 'Pipeline',
                 'type' => 'lookup',
-                'lookup_type' => 'lead_pipelines',
-                'entity_type' => 'leads',
+                'lookup_type' => 'initiative_pipelines',
+                'entity_type' => 'initiatives',
                 'sort_order' => 9,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -155,14 +155,14 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 27,
-                'code' => 'lead_pipeline_stage_id',
+                'code' => 'initiative_pipeline_stage_id',
                 'name' => 'Stage',
                 'type' => 'lookup',
-                'lookup_type' => 'lead_pipeline_stages',
-                'entity_type' => 'leads',
+                'lookup_type' => 'initiative_pipeline_stages',
+                'entity_type' => 'initiatives',
                 'sort_order' => 10,
                 'validation' => NULL,
                 'is_required' => 1,
@@ -172,7 +172,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 28,
                 'code' => 'name',
@@ -189,7 +189,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 29,
                 'code' => 'emails',
@@ -206,7 +206,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 30,
                 'code' => 'contact_numbers',
@@ -223,7 +223,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 31,
                 'code' => 'job_title',
@@ -240,11 +240,11 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 32,
                 'code' => 'user_id',
-                'name' => 'Sales Owner',
+                'name' => 'Initative Owner',
                 'type' => 'lookup',
                 'lookup_type' => 'users',
                 'entity_type' => 'persons',
@@ -257,7 +257,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 33,
                 'code' => 'organization_id',
@@ -274,7 +274,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 34,
                 'code' => 'name',
@@ -291,7 +291,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 35,
                 'code' => 'address',
@@ -308,11 +308,11 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 36,
                 'code' => 'user_id',
-                'name' => 'Sales Owner',
+                'name' => 'Initative Owner',
                 'type' => 'lookup',
                 'lookup_type' => 'users',
                 'entity_type' => 'organizations',
@@ -325,7 +325,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 37,
                 'code' => 'name',
@@ -342,7 +342,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 38,
                 'code' => 'description',
@@ -359,7 +359,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 39,
                 'code' => 'sku',
@@ -376,7 +376,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 40,
                 'code' => 'quantity',
@@ -393,7 +393,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 41,
                 'code' => 'price',
@@ -410,11 +410,11 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 42,
                 'code' => 'user_id',
-                'name' => 'Sales Owner',
+                'name' => 'Initative Owner',
                 'type' => 'select',
                 'lookup_type' => 'users',
                 'entity_type' => 'quotes',
@@ -427,7 +427,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 43,
                 'code' => 'subject',
@@ -444,7 +444,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 44,
                 'code' => 'description',
@@ -461,7 +461,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 45,
                 'code' => 'billing_address',
@@ -478,7 +478,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 46,
                 'code' => 'shipping_address',
@@ -495,7 +495,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 47,
                 'code' => 'discount_percent',
@@ -512,7 +512,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 48,
                 'code' => 'discount_amount',
@@ -529,7 +529,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 49,
                 'code' => 'tax_amount',
@@ -546,7 +546,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 50,
                 'code' => 'adjustment_amount',
@@ -563,7 +563,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 51,
                 'code' => 'sub_total',
@@ -580,7 +580,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 52,
                 'code' => 'grand_total',
@@ -597,7 +597,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 53,
                 'code' => 'expired_at',
@@ -614,7 +614,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 54,
                 'code' => 'person_id',
@@ -631,7 +631,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 55,
                 'code' => 'name',
@@ -648,7 +648,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 56,
                 'code' => 'description',
@@ -665,7 +665,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 57,
                 'code' => 'contact_name',
@@ -682,7 +682,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 58,
                 'code' => 'contact_emails',
@@ -699,7 +699,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 59,
                 'code' => 'contact_numbers',
@@ -716,7 +716,7 @@ class AttributesTableSeeder extends Seeder
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 60,
                 'code' => 'contact_address',
@@ -734,7 +734,7 @@ class AttributesTableSeeder extends Seeder
                 'updated_at' => '2024-10-01 08:36:21',
             ),
         ));
-        
-        
+
+
     }
 }

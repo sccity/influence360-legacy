@@ -16,7 +16,7 @@ use Influence360\Admin\Http\Requests\AttributeForm;
 use Influence360\Admin\Http\Requests\MassDestroyRequest;
 use Influence360\Admin\Http\Resources\QuoteResource;
 use Influence360\Core\Traits\PDFHandler;
-use Influence360\Lead\Repositories\LeadRepository;
+use Influence360\Initiative\Repositories\InitiativeRepository;
 use Influence360\Quote\Repositories\QuoteRepository;
 
 class QuoteController extends Controller
@@ -30,7 +30,7 @@ class QuoteController extends Controller
      */
     public function __construct(
         protected QuoteRepository $quoteRepository,
-        protected LeadRepository $leadRepository
+        protected InitiativeRepository $initiativeRepository
     ) {
         request()->request->add(['entity_type' => 'quotes']);
     }
@@ -52,9 +52,9 @@ class QuoteController extends Controller
      */
     public function create(): View
     {
-        $lead = $this->leadRepository->find(request('id'));
+        $initiative = $this->initiativeRepository->find(request('id'));
 
-        return view('admin::quotes.create', compact('lead'));
+        return view('admin::quotes.create', compact('initiative'));
     }
 
     /**
@@ -66,10 +66,10 @@ class QuoteController extends Controller
 
         $quote = $this->quoteRepository->create($request->all());
 
-        if (request('lead_id')) {
-            $lead = $this->leadRepository->find(request('lead_id'));
+        if (request('initiative_id')) {
+            $initiative = $this->initiativeRepository->find(request('initiative_id'));
 
-            $lead->quotes()->attach($quote->id);
+            $initiative->quotes()->attach($quote->id);
         }
 
         Event::dispatch('quote.create.after', $quote);
@@ -98,12 +98,12 @@ class QuoteController extends Controller
 
         $quote = $this->quoteRepository->update($request->all(), $id);
 
-        $quote->leads()->detach();
+        $quote->initiatives()->detach();
 
-        if (request('lead_id')) {
-            $lead = $this->leadRepository->find(request('lead_id'));
+        if (request('initiative_id')) {
+            $initiative = $this->initiativeRepository->find(request('initiative_id'));
 
-            $lead->quotes()->attach($quote->id);
+            $initiative->quotes()->attach($quote->id);
         }
 
         Event::dispatch('quote.update.after', $quote);

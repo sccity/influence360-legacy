@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\View\View;
 use Influence360\Attribute\Repositories\AttributeRepository;
 use Influence360\Contact\Repositories\PersonRepository;
-use Influence360\Lead\Repositories\LeadRepository;
-use Influence360\Lead\Repositories\PipelineRepository;
-use Influence360\Lead\Repositories\SourceRepository;
-use Influence360\Lead\Repositories\TypeRepository;
+use Influence360\Initiative\Repositories\InitiativeRepository;
+use Influence360\Initiative\Repositories\PipelineRepository;
+use Influence360\Initiative\Repositories\SourceRepository;
+use Influence360\Initiative\Repositories\TypeRepository;
 use Influence360\WebForm\Http\Requests\WebForm;
 use Influence360\WebForm\Repositories\WebFormRepository;
 
@@ -26,7 +26,7 @@ class WebFormController extends Controller
         protected AttributeRepository $attributeRepository,
         protected WebFormRepository $webFormRepository,
         protected PersonRepository $personRepository,
-        protected LeadRepository $leadRepository,
+        protected InitiativeRepository $initiativeRepository,
         protected PipelineRepository $pipelineRepository,
         protected SourceRepository $sourceRepository,
         protected TypeRepository $typeRepository,
@@ -61,14 +61,14 @@ class WebFormController extends Controller
 
         $webForm = $this->webFormRepository->findOrFail($id);
 
-        if ($webForm->create_lead) {
-            request()->request->add(['entity_type' => 'leads']);
+        if ($webForm->create_initiative) {
+            request()->request->add(['entity_type' => 'initiatives']);
 
-            Event::dispatch('lead.create.before');
+            Event::dispatch('initiative.create.before');
 
-            $data = request('leads');
+            $data = request('initiatives');
 
-            $data['entity_type'] = 'leads';
+            $data['entity_type'] = 'initiatives';
 
             $data['person'] = request('persons');
 
@@ -78,29 +78,29 @@ class WebFormController extends Controller
 
             $stage = $pipeline->stages()->first();
 
-            $data['lead_pipeline_id'] = $pipeline->id;
+            $data['initiative_pipeline_id'] = $pipeline->id;
 
-            $data['lead_pipeline_stage_id'] = $stage->id;
+            $data['initiative_pipeline_stage_id'] = $stage->id;
 
-            $data['title'] = request('leads.title') ?: 'Lead From Web Form';
+            $data['title'] = request('initiatives.title') ?: 'Initiative From Web Form';
 
-            $data['lead_value'] = request('leads.lead_value') ?: 0;
+            $data['initiative_value'] = request('initiatives.initiative_value') ?: 0;
 
-            if (! request('leads.lead_source_id')) {
+            if (! request('initiatives.initiative_source_id')) {
                 $source = $this->sourceRepository->findOneByField('name', 'Web Form');
 
                 if (! $source) {
                     $source = $this->sourceRepository->first();
                 }
 
-                $data['lead_source_id'] = $source->id;
+                $data['initiative_source_id'] = $source->id;
             }
 
-            $data['lead_type_id'] = request('leads.lead_type_id') ?: $this->typeRepository->first()->id;
+            $data['initiative_type_id'] = request('initiatives.initiative_type_id') ?: $this->typeRepository->first()->id;
 
-            $lead = $this->leadRepository->create($data);
+            $initiative = $this->initiativeRepository->create($data);
 
-            Event::dispatch('lead.create.after', $lead);
+            Event::dispatch('initiative.create.after', $initiative);
         } else {
             if (! $person) {
                 Event::dispatch('contacts.person.create.before');

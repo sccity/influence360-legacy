@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('message_id')->unique();
             $table->json('reference_ids')->nullable();
             $table->unsignedInteger('person_id')->nullable()->index('emails_person_id_foreign');
-            $table->unsignedInteger('lead_id')->nullable()->index('emails_lead_id_foreign');
+            $table->unsignedInteger('initiative_id')->nullable()->index('emails_initiative_id_foreign');
             $table->timestamps();
             $table->unsignedInteger('parent_id')->nullable()->index('emails_parent_id_foreign');
         });

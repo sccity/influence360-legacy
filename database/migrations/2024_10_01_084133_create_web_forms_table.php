@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('submit_button_label');
             $table->string('submit_success_action');
             $table->string('submit_success_content');
-            $table->boolean('create_lead')->default(false);
+            $table->boolean('create_initiative')->default(false);
             $table->string('background_color')->nullable();
             $table->string('form_background_color')->nullable();
             $table->string('form_title_color')->nullable();

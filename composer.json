@@ -63,7 +63,7 @@
             "Influence360\\Core\\": "packages/Influence360/Core/src",
             "Influence360\\Email\\": "packages/Influence360/Email/src",
             "Influence360\\EmailTemplate\\": "packages/Influence360/EmailTemplate/src",
-            "Influence360\\Lead\\": "packages/Influence360/Lead/src",
+            "Influence360\\Initiative\\": "packages/Influence360/Initiative/src",
             "Influence360\\Product\\": "packages/Influence360/Product/src",
             "Influence360\\Quote\\": "packages/Influence360/Quote/src",
             "Influence360\\Tag\\": "packages/Influence360/Tag/src",

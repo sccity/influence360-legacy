@@ -1,34 +1,34 @@
 <?php
 
 return [
-    'leads' => [
-        'name'         => 'Leads',
-        'repository'   => 'Influence360\Lead\Repositories\LeadRepository',
+    'initiatives' => [
+        'name'         => 'Initiatives',
+        'repository'   => 'Influence360\Initiative\Repositories\InitiativeRepository',
         'label_column' => 'title',
     ],
 
-    'lead_sources' => [
-        'name'         => 'Lead Sources',
-        'repository'   => 'Influence360\Lead\Repositories\SourceRepository',
+    'initiative_sources' => [
+        'name'         => 'Initiative Sources',
+        'repository'   => 'Influence360\Initiative\Repositories\SourceRepository',
     ],
 
-    'lead_types' => [
-        'name'         => 'Lead Types',
-        'repository'   => 'Influence360\Lead\Repositories\TypeRepository',
+    'initiative_types' => [
+        'name'         => 'Initiative Types',
+        'repository'   => 'Influence360\Initiative\Repositories\TypeRepository',
     ],
 
-    'lead_pipelines' => [
-        'name'         => 'Lead Pipelines',
-        'repository'   => 'Influence360\Lead\Repositories\PipelineRepository',
+    'initiative_pipelines' => [
+        'name'         => 'Initiative Pipelines',
+        'repository'   => 'Influence360\Initiative\Repositories\PipelineRepository',
     ],
 
-    'lead_pipeline_stages' => [
-        'name'         => 'Lead Pipeline Stages',
-        'repository'   => 'Influence360\Lead\Repositories\StageRepository',
+    'initiative_pipeline_stages' => [
+        'name'         => 'Initiative Pipeline Stages',
+        'repository'   => 'Influence360\Initiative\Repositories\StageRepository',
     ],
 
     'users' => [
-        'name'         => 'Sales Owners',
+        'name'         => 'Initative Owners',
         'repository'   => 'Influence360\User\Repositories\UserRepository',
     ],
 

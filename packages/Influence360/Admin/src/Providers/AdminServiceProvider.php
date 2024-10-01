@@ -44,7 +44,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->app->bind(ExceptionHandler::class, Handler::class);
 
         Relation::morphMap([
-            'leads'         => \Influence360\Lead\Models\Lead::class,
+            'initiatives'         => \Influence360\Initiative\Models\Initiative::class,
             'organizations' => \Influence360\Contact\Models\Organization::class,
             'persons'       => \Influence360\Contact\Models\Person::class,
             'products'      => \Influence360\Product\Models\Product::class,
