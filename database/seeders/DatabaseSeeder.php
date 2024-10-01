@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
             LeadTagsTableSeeder::class,
             LeadTypesTableSeeder::class,
             LeadsTableSeeder::class,
-            MigrationsTableSeeder::class,
             OrganizationsTableSeeder::class,
             PersonActivitiesTableSeeder::class,
             PersonTagsTableSeeder::class,
