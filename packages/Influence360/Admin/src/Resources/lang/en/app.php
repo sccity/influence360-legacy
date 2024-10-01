@@ -1771,7 +1771,7 @@ return [
             ],
 
             'attributes' => [
-                'title' => 'About Initiative',
+                'title' => 'Initiative Details',
             ],
 
             'quotes'=> [
@@ -1805,7 +1805,7 @@ return [
             ],
 
             'persons' => [
-                'title'     => 'About Persons',
+                'title'     => 'Initative Contacts',
                 'job-title' => ':job_title at :organization',
             ],
 

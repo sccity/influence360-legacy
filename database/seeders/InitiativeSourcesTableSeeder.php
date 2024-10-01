@@ -14,33 +14,33 @@ class InitiativeSourcesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('initiative_sources')->delete();
-        
+
         \DB::table('initiative_sources')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
-                'name' => 'Self',
+                'name' => 'Self Identified',
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:53:36',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
-                'name' => 'Staff',
+                'name' => 'City Staff',
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:53:19',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'name' => 'Mayor & Council',
                 'created_at' => '2024-10-01 08:53:43',
                 'updated_at' => '2024-10-01 08:53:43',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'name' => 'Other',
@@ -48,7 +48,7 @@ class InitiativeSourcesTableSeeder extends Seeder
                 'updated_at' => '2024-10-01 08:53:51',
             ),
         ));
-        
-        
+
+
     }
 }
