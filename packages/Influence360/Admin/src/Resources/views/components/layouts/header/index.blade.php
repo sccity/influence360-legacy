@@ -59,19 +59,6 @@
                                     </div>
                                 @endif
 
-                                <!-- Link to send new Mail-->
-                                @if (bouncer()->hasPermission('mail.create'))
-                                    <div class="rounded-lg bg-white p-2 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-950">
-                                        <a href="{{ route('admin.mail.index', ['route' => 'inbox']) }}">
-                                            <div class="flex flex-col gap-1">
-                                                <i class="icon-mail text-2xl text-gray-600"></i>
-
-                                                <span class="font-medium dark:text-gray-300">@lang('admin::app.layouts.email')</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-
                                 <!-- Link to create new Person-->
                                 @if (bouncer()->hasPermission('contacts.persons.create'))
                                     <div class="rounded-lg bg-white p-2 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-950">
