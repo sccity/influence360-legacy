@@ -32,3 +32,4 @@ done
 
 echo "Replacement complete."
 echo "blah"
+echo "Test"
