@@ -202,8 +202,7 @@
 
                         tabs: [
                             { id: 'initiative-details', label: '@lang('admin::app.initiatives.create.details')' },
-                            { id: 'contact-person', label: '@lang('admin::app.initiatives.create.contact-person')' },
-                            { id: 'products', label: '@lang('admin::app.initiatives.create.products')' }
+                            { id: 'contact-person', label: '@lang('admin::app.initiatives.create.contact-person')' }
                         ],
                     };
                 },
