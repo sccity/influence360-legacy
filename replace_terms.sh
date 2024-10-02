@@ -31,3 +31,4 @@ find . -depth -name "*${oldname}*" | while read -r file; do
 done
 
 echo "Replacement complete."
+echo "blah"
