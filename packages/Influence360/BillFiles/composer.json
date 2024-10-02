@@ -1,0 +1,8 @@
+{
+    "name": "influence360/bill-files",
+    "autoload": {
+        "psr-4": {
+            "Influence360\\BillFiles\\": "src/"
+        }
+    }
+}

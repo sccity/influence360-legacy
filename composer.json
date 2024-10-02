@@ -68,7 +68,9 @@
             "Influence360\\User\\": "packages/Influence360/User/src",
             "Influence360\\WebForm\\": "packages/Influence360/WebForm/src",
             "Influence360\\Automation\\": "packages/Influence360/Automation/src",
-            "Influence360\\DataGrid\\": "packages/Influence360/DataGrid/src"
+            "Influence360\\DataGrid\\": "packages/Influence360/DataGrid/src",
+            "Influence360\\BillFiles\\": "packages/Influence360/BillFiles/src"
+
         }
     },
     "autoload-dev": {

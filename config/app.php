@@ -211,6 +211,7 @@ return [
         Influence360\Tag\Providers\TagServiceProvider::class,
         Influence360\User\Providers\UserServiceProvider::class,
         Influence360\WebForm\Providers\WebFormServiceProvider::class,
+        Influence360\BillFiles\Providers\BillFilesServiceProvider::class,
     ])->toArray(),
 
     /*
