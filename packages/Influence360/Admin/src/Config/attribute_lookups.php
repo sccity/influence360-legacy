@@ -42,11 +42,6 @@ return [
         'repository'   => 'Influence360\Contact\Repositories\PersonRepository',
     ],
 
-    'warehouses' => [
-        'name'         => 'Warehouses',
-        'repository'   => 'Influence360\Warehouse\Repositories\WarehouseRepository',
-    ],
-
     'locations' => [
         'name'         => 'Locations',
         'repository'   => 'Influence360\Warehouse\Repositories\LocationRepository',

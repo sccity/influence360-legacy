@@ -14,7 +14,6 @@ return [
         \Influence360\Initiative\Providers\ModuleServiceProvider::class,
         \Influence360\Tag\Providers\ModuleServiceProvider::class,
         \Influence360\User\Providers\ModuleServiceProvider::class,
-        \Influence360\Warehouse\Providers\ModuleServiceProvider::class,
         \Influence360\WebForm\Providers\ModuleServiceProvider::class,
     ],
 

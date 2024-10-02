@@ -158,6 +158,7 @@ return [
                 'all'          => 'All',
                 'planned'      => 'Planned',
                 'calls'        => 'Calls',
+                'emailmsg'     => 'E-Mails',
                 'meetings'     => 'Meetings',
                 'lunches'      => 'Lunches',
                 'files'        => 'Files',
@@ -1972,9 +1973,6 @@ return [
         'configuration'        => 'Configuration',
         'activities'           => 'Activities',
         'howdy'                => 'Howdy!',
-        'warehouses'           => 'Warehouses',
-        'warehouse'            => 'Warehouse',
-        'warehouses-info'      => 'Add, edit or delete warehouses from CRM',
     ],
 
     'user' => [

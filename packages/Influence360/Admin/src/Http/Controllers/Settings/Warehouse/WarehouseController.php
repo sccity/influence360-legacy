@@ -11,7 +11,6 @@ use Influence360\Admin\DataGrids\Product\ProductDataGrid;
 use Influence360\Admin\DataGrids\Settings\WarehouseDataGrid;
 use Influence360\Admin\Http\Controllers\Controller;
 use Influence360\Admin\Http\Requests\AttributeForm;
-use Influence360\Warehouse\Repositories\WarehouseRepository;
 
 class WarehouseController extends Controller
 {
@@ -20,34 +19,14 @@ class WarehouseController extends Controller
      *
      * @return void
      */
-    public function __construct(protected WarehouseRepository $warehouseRepository)
-    {
-        request()->request->add(['entity_type' => 'warehouses']);
-    }
 
     /**
      * Display a listing of the resource.
      */
-    public function index(): View|JsonResponse
-    {
-        if (request()->ajax()) {
-            return datagrid(WarehouseDataGrid::class)->process();
-        }
-
-        return view('admin::settings.warehouses.index');
-    }
 
     /**
      * Search location results
      */
-    public function search(): JsonResponse
-    {
-        $results = $this->warehouseRepository
-            ->pushCriteria(app(RequestCriteria::class))
-            ->all();
-
-        return response()->json($results);
-    }
 
     /**
      * Display a listing of the product resource.

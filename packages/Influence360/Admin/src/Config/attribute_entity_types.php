@@ -15,9 +15,4 @@ return [
         'name'       => 'admin::app.contacts.organizations.index.title',
         'repository' => 'Influence360\Contact\Repositories\OrganizationRepository',
     ],
-
-    'warehouses'      => [
-        'name'       => 'admin::app.settings.warehouses.index.title',
-        'repository' => 'Influence360\Warehouse\Repositories\WarehouseRepository',
-    ],
 ];

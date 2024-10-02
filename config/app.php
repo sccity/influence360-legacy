@@ -67,7 +67,7 @@ return [
     |
      */
 
-    'admin_path' => env('APP_ADMIN_PATH', 'admin'),
+    'admin_path' => env('APP_ADMIN_PATH', ''),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -210,7 +210,6 @@ return [
         Influence360\Initiative\Providers\InitiativeServiceProvider::class,
         Influence360\Tag\Providers\TagServiceProvider::class,
         Influence360\User\Providers\UserServiceProvider::class,
-        Influence360\Warehouse\Providers\WarehouseServiceProvider::class,
         Influence360\WebForm\Providers\WebFormServiceProvider::class,
     ])->toArray(),
 

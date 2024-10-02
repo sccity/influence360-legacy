@@ -66,7 +66,6 @@
             "Influence360\\Initiative\\": "packages/Influence360/Initiative/src",
             "Influence360\\Tag\\": "packages/Influence360/Tag/src",
             "Influence360\\User\\": "packages/Influence360/User/src",
-            "Influence360\\Warehouse\\": "packages/Influence360/Warehouse/src",
             "Influence360\\WebForm\\": "packages/Influence360/WebForm/src",
             "Influence360\\Automation\\": "packages/Influence360/Automation/src",
             "Influence360\\DataGrid\\": "packages/Influence360/DataGrid/src"

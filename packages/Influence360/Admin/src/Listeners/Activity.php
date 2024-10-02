@@ -5,7 +5,6 @@ namespace Influence360\Admin\Listeners;
 use Influence360\Activity\Contracts\Activity as ActivityContract;
 use Influence360\Contact\Repositories\PersonRepository;
 use Influence360\Initiative\Repositories\InitiativeRepository;
-use Influence360\Warehouse\Repositories\WarehouseRepository;
 
 class Activity
 {
@@ -17,7 +16,6 @@ class Activity
     public function __construct(
         protected InitiativeRepository $initiativeRepository,
         protected PersonRepository $personRepository,
-        protected WarehouseRepository $warehouseRepository
     ) {}
 
     /**
@@ -36,18 +34,6 @@ class Activity
 
             if (! $person->activities->contains($activity->id)) {
                 $person->activities()->attach($activity->id);
-            }
-        } elseif (request()->input('warehouse_id')) {
-            $warehouse = $this->warehouseRepository->find(request()->input('warehouse_id'));
-
-            if (! $warehouse->activities->contains($activity->id)) {
-                $warehouse->activities()->attach($activity->id);
-            }
-        } elseif (request()->input('product_id')) {
-            $product = $this->productRepository->find(request()->input('product_id'));
-
-            if (! $product->activities->contains($activity->id)) {
-                $product->activities()->attach($activity->id);
             }
         }
     }
