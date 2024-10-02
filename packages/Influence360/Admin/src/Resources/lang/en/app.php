@@ -1915,6 +1915,7 @@ return [
         'dashboard'            => 'Dashboard',
         'initiatives'                => 'Initiatives',
         'quotes'               => 'Quotes',
+        'bill-files' => 'Bill Files',
         'quote'                => 'Quote',
         'mail'                 => [
             'title'   => 'Mail',

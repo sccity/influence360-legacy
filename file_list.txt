@@ -52,6 +52,7 @@ TrustProxies.php
 VerifyCsrfToken.php
 
 ./app/Models:
+BillFile.php
 User.php
 
 ./app/Providers:
@@ -97,6 +98,7 @@ migrations
 seeders
 
 ./database/factories:
+BillFileFactory.php
 UserFactory.php
 
 ./database/migrations:
@@ -158,7 +160,7 @@ UserFactory.php
 2024_10_01_084136_add_foreign_keys_to_user_groups_table.php
 2024_10_01_084136_add_foreign_keys_to_users_table.php
 2024_10_01_084136_add_foreign_keys_to_web_form_attributes_table.php
-2024_10_02_125456_create_bill_files_table.php
+2024_10_02_131239_create_bill_files_table.php
 
 ./database/seeders:
 ActivitiesTableSeeder.php
@@ -167,6 +169,7 @@ ActivityParticipantsTableSeeder.php
 AttributeOptionsTableSeeder.php
 AttributeValuesTableSeeder.php
 AttributesTableSeeder.php
+BillFilesTableSeeder.php
 CoreConfigTableSeeder.php
 CountriesTableSeeder.php
 CountryStatesTableSeeder.php
@@ -1218,12 +1221,14 @@ WorkflowRepository.php
 WebhookService.php
 
 ./packages/Influence360/BillFiles:
+composer.json
 src
 
 ./packages/Influence360/BillFiles/src:
-Database
+Providers
 
-./packages/Influence360/BillFiles/src/Database:
+./packages/Influence360/BillFiles/src/Providers:
+BillFilesServiceProvider.php
 
 ./packages/Influence360/Contact:
 composer.json
@@ -2015,6 +2020,7 @@ f89bc38b8987965a3648f280627f47e2.php
 f9598002b9b11d517d78b3e0d8b4f1d2.php
 
 ./storage/logs:
+laravel.log
 
 ./tests:
 CreatesApplication.php

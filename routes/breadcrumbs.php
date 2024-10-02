@@ -2,11 +2,14 @@
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+use Illuminate\Support\Facades\Route;
+
 
 // Dashboard
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push(trans('admin::app.layouts.dashboard'), route('admin.dashboard.index'));
 });
+
 
 // Dashboard > Initiatives
 Breadcrumbs::for('initiatives', function (BreadcrumbTrail $trail) {
@@ -420,4 +423,16 @@ Breadcrumbs::for('configuration.slug', function (BreadcrumbTrail $trail, $slug) 
 Breadcrumbs::for('dashboard.account.edit', function (BreadcrumbTrail $trail, $user) {
     $trail->parent('dashboard');
     $trail->push(trans('admin::app.account.edit.title'), route('admin.user.account.edit', $user->id));
+});
+
+// Bill-Files Index
+Breadcrumbs::for('admin.bill-files.index', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push(__('admin::app.bill-files.index.title'), route('admin.bill-files.index'));
+});
+
+// Bill-Files View
+Breadcrumbs::for('admin.bill-files.view', function ($trail, $billFile) {
+    $trail->parent('admin.bill-files.index');
+    $trail->push($billFile->billname, route('admin.bill-files.view', $billFile->id));
 });

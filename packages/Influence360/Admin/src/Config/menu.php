@@ -24,6 +24,17 @@ return [
     ],
 
     /**
+    * Bill Files.
+    */
+    [
+        'key'        => 'bill-files',
+        'name'       => 'admin::app.layouts.bill-files', // Make sure this translation exists
+        'route'      => 'admin.bill-files.index',
+        'sort'       => 5,
+        'icon-class' => 'icon-file', // Replace with an appropriate icon class
+    ],
+
+    /**
      * Contacts.
      */
     [

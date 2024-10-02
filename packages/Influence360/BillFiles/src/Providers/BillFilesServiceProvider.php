@@ -8,7 +8,11 @@ class BillFilesServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        // Register BillFiles views
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'BillFiles');
+
+        // Log to ensure this is being called
+        \Log::info('BillFiles views registered');
     }
 
     public function register()
