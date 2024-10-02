@@ -102,15 +102,21 @@
                                     {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.header.before') !!}
 
                                     <!-- Header -->
+                                    <p class="text-m font-medium">
+                                        @{{ element.title }}
+                                    </p>
+
+                                    {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.header.after') !!}
+
+                                    {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.title.before') !!}
+
+                                    <!-- Initiative Contact -->
                                     <div class="flex items-start justify-between">
                                         <div class="flex items-center gap-1">
-                                            <x-admin::avatar ::name="element.person.name" />
-
                                             <div class="flex flex-col gap-0.5">
                                                 <span class="text-xs font-medium">
                                                     @{{ element.person.name }}
                                                 </span>
-
                                                 <span class="text-[10px] initiativeing-normal">
                                                     @{{ element.person.organization?.name }}
                                                 </span>
@@ -132,15 +138,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.header.after') !!}
-
-                                    {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.title.before') !!}
-
-                                    <!-- Initiative Title -->
-                                    <p class="text-xs font-medium">
-                                        @{{ element.title }}
-                                    </p>
 
                                     {!! view_render_event('admin.initiatives.index.kanban.content.stage.body.card.title.after') !!}
 
