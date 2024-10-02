@@ -63,6 +63,9 @@ class Activity extends AbstractEntity
                         'id'   => 'call',
                         'name' => 'Call',
                     ], (object) [
+                        'id'   => 'emailmsg',
+                        'name' => 'E-Mail',
+                    ], (object) [
                         'id'   => 'meeting',
                         'name' => 'Meeting',
                     ], (object) [

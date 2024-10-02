@@ -8,7 +8,7 @@
         <!-- Left Panel -->
         {!! view_render_event('admin.initiatives.view.left.before', ['initiative' => $initiative]) !!}
 
-        <div class="sticky top-[73px] flex min-w-[394px] max-w-[394px] flex-col self-start rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+        <div class="sticky top-[73px] flex flex-col self-start rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900" style="min-width: 302px !important; max-width: 302px !important;">
             <!-- Initiative Information -->
             <div class="flex w-full flex-col gap-2 border-b border-gray-200 p-4 dark:border-gray-800">
                 <!-- Breadcrums -->
@@ -55,29 +55,19 @@
                 <div class="flex flex-wrap gap-2">
                     {!! view_render_event('admin.initiatives.view.actions.before', ['initiative' => $initiative]) !!}
 
-                    @if (bouncer()->hasPermission('mail.compose'))
-                        <!-- Mail Activity Action -->
-                        <x-admin::activities.actions.mail
-                            :entity="$initiative"
-                            entity-control-name="initiative_id"
-                        />
-                    @endif
-
                     @if (bouncer()->hasPermission('activities.create'))
-                        <!-- File Activity Action -->
-                        <x-admin::activities.actions.file
+                        <!-- Activity Action -->
+                        <x-admin::activities.actions.activity
                             :entity="$initiative"
                             entity-control-name="initiative_id"
                         />
-
                         <!-- Note Activity Action -->
                         <x-admin::activities.actions.note
                             :entity="$initiative"
                             entity-control-name="initiative_id"
                         />
-
-                        <!-- Activity Action -->
-                        <x-admin::activities.actions.activity
+                        <!-- File Activity Action -->
+                        <x-admin::activities.actions.file
                             :entity="$initiative"
                             entity-control-name="initiative_id"
                         />
@@ -111,6 +101,7 @@
                 :email-detach-endpoint="route('admin.initiatives.emails.detach', $initiative->id)"
                 :extra-types="[
                     ['name' => 'description', 'label' => trans('admin::app.initiatives.view.tabs.description')],
+
                 ]"
             >
                 <!-- Description -->

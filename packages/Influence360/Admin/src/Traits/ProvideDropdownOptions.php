@@ -210,6 +210,11 @@ trait ProvideDropdownOptions
                 'disabled' => false,
                 'selected' => false,
             ], [
+                'label'    => trans('admin::app.common.select-emailmsg'),
+                'value'    => 'emailmsg',
+                'disabled' => false,
+                'selected' => false,
+            ], [
                 'label'    => trans('admin::app.common.select-meeting'),
                 'value'    => 'meeting',
                 'disabled' => false,

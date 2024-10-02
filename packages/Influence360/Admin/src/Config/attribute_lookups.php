@@ -28,7 +28,7 @@ return [
     ],
 
     'users' => [
-        'name'         => 'Initative Owners',
+        'name'         => 'Owners',
         'repository'   => 'Influence360\User\Repositories\UserRepository',
     ],
 

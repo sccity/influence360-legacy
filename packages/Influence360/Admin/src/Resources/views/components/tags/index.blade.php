@@ -102,7 +102,7 @@
                             <label class="text-gray-600 dark:text-gray-300">
                                 @lang('admin::app.components.tags.index.added-tags')
                             </label>
-                            
+
                             <!-- Added Tags List -->
                             <ul class="flex flex-col">
                                 <template v-for="tag in tags">
@@ -155,7 +155,7 @@
                                                     </x-slot>
                                                 </x-admin::dropdown>
                                             @endif
-                                            
+
                                             @if (bouncer()->hasPermission('settings.other_settings.tags.delete'))
                                                 <div class="flex items-center">
                                                     <span
@@ -197,7 +197,7 @@
                     type: String,
                     default: '',
                 },
-                
+
                 addedTags: {
                     type: Array,
                     default: () => [],
@@ -215,7 +215,7 @@
                     isRemoving: {},
 
                     tags: [],
-                    
+
                     searchedTags: [],
 
                     backgroundColors: [
@@ -273,9 +273,9 @@
                     }
 
                     this.isSearching = true;
-                    
+
                     let self = this;
-                    
+
                     this.$axios.get("{{ route('admin.settings.tags.search') }}", {
                             params: {
                                 search: 'name:' + this.searchTerm,
@@ -362,11 +362,11 @@
 
                 detachFromEntity(tag) {
                     var self = this;
-                    
+
                     this.$emitter.emit('open-confirm-modal', {
                         agree: () => {
                             this.isRemoving[tag.id] = true;
-                    
+
                             this.$axios.delete(this.detachEndpoint, {
                                     data: {
                                         tag_id: tag.id,
@@ -383,7 +383,7 @@
                                 })
                                 .catch(error => {
                                     self.$emitter.emit('add-flash', { type: 'error', message: error.response.data.message });
-                                    
+
                                     self.isRemoving[tag.id] = false;
                                 });
                         },

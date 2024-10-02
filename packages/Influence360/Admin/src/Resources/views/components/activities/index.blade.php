@@ -414,6 +414,9 @@
                             name: 'call',
                             label: "{{ trans('admin::app.components.activities.index.calls') }}",
                         }, {
+                            name: 'emailmsg',
+                            label: "{{ trans('admin::app.components.activities.index.emailmsg') }}",
+                        }, {
                             name: 'meeting',
                             label: "{{ trans('admin::app.components.activities.index.meetings') }}",
                         }, {
@@ -452,6 +455,7 @@
                         email: 'icon-mail bg-green-200 text-green-900 dark:!text-green-900',
                         note: 'icon-note bg-orange-200 text-orange-800 dark:!text-orange-800',
                         call: 'icon-call bg-cyan-200 text-cyan-800 dark:!text-cyan-800',
+                        emailmsg: 'icon-mail bg-green-200 text-green-900 dark:!text-green-900',
                         meeting: 'icon-activity bg-blue-200 text-blue-800 dark:!text-blue-800',
                         lunch: 'icon-activity bg-blue-200 text-blue-800 dark:!text-blue-800',
                         file: 'icon-file bg-green-200 text-green-900 dark:!text-green-900',

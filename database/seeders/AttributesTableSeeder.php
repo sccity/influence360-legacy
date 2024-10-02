@@ -57,7 +57,7 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 21,
                 'code' => 'initiative_value',
-                'name' => 'Initiative Value',
+                'name' => 'Value',
                 'type' => 'price',
                 'lookup_type' => NULL,
                 'entity_type' => 'initiatives',
@@ -108,7 +108,7 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 24,
                 'code' => 'user_id',
-                'name' => 'Initative Owner',
+                'name' => 'Owner',
                 'type' => 'select',
                 'lookup_type' => 'users',
                 'entity_type' => 'initiatives',
@@ -244,7 +244,7 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 32,
                 'code' => 'user_id',
-                'name' => 'Initative Owner',
+                'name' => 'Owner',
                 'type' => 'lookup',
                 'lookup_type' => 'users',
                 'entity_type' => 'persons',
@@ -312,7 +312,7 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 36,
                 'code' => 'user_id',
-                'name' => 'Initative Owner',
+                'name' => 'Owner',
                 'type' => 'lookup',
                 'lookup_type' => 'users',
                 'entity_type' => 'organizations',
@@ -414,7 +414,7 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 42,
                 'code' => 'user_id',
-                'name' => 'Initative Owner',
+                'name' => 'Owner',
                 'type' => 'select',
                 'lookup_type' => 'users',
                 'entity_type' => 'quotes',

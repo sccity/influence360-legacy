@@ -32,7 +32,7 @@ class ActivityDataGrid extends DataGrid
             ->leftJoin('initiative_activities', 'activities.id', '=', 'initiative_activities.activity_id')
             ->leftJoin('initiatives', 'initiative_activities.initiative_id', '=', 'initiatives.id')
             ->leftJoin('users', 'activities.user_id', '=', 'users.id')
-            ->whereIn('type', ['call', 'meeting', 'lunch'])
+            ->whereIn('type', ['call', 'emailmsg', 'meeting', 'lunch'])
             ->where(function ($query) {
                 if ($userIds = bouncer()->getAuthorizedUserIds()) {
                     $query->whereIn('activities.user_id', $userIds)

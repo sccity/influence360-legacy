@@ -756,7 +756,7 @@
                                     </div>
                                 </template>
 
-                                <!-- Initiative Value -->
+                                <!-- Value -->
                                 <div class="rounded-xl bg-slate-200 px-3 py-1 text-xs font-medium">
                                     @{{ $admin.formatPrice(email.initiative.initiative_value) }}
                                 </div>
