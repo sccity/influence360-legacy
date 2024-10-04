@@ -1,8 +1,27 @@
 {
-    "name": "influence360/bill-files",
+    "name": "billfiles/billfiles",
+    "description": "billfiles",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Webkul",
+            "email": "example@webkul.com"
+        }
+    ],
+    "require": {
+    },
     "autoload": {
         "psr-4": {
-            "Influence360\\BillFiles\\": "packages/Influence360/BillFiles/src/"
+            "Influence360\BillFiles\\Influence360\BillFiles\\": "src/"
         }
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Influence360\BillFiles\\Providers\\Influence360\BillFilesServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
 }

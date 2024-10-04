@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01c860054c4402d16efce830ec36c8bd",
+    "content-hash": "4a2f69a3b46d316c1ffcc85c27e888ab",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -2044,6 +2044,51 @@
                 "source": "https://github.com/artkonekt/enum-eloquent"
             },
             "time": "2024-01-08T15:50:35+00:00"
+        },
+        {
+            "name": "krayin/krayin-package-generator",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krayin/krayin-package-generator.git",
+                "reference": "b9a61169ca985e45e83b9225c885b77692793f39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krayin/krayin-package-generator/zipball/b9a61169ca985e45e83b9225c885b77692793f39",
+                "reference": "b9a61169ca985e45e83b9225c885b77692793f39",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webkul\\PackageGenerator\\Providers\\PackageGeneratorServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webkul\\PackageGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jitendra Singh",
+                    "email": "jitendra@webkul.com"
+                }
+            ],
+            "description": "Krayin Package Generator",
+            "support": {
+                "issues": "https://github.com/krayin/krayin-package-generator/issues",
+                "source": "https://github.com/krayin/krayin-package-generator/tree/v2.0.0"
+            },
+            "time": "2024-09-27T04:57:16+00:00"
         },
         {
             "name": "laravel/framework",
