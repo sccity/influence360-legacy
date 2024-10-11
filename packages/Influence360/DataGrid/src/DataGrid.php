@@ -152,7 +152,7 @@ abstract class DataGrid
     public function addAction(array $action): void
     {
         $this->dispatchEvent('actions.add.before', [$this, $action]);
-
+        dd($action);
         $this->actions[] = new Action(
             index: $action['index'] ?? '',
             icon: $action['icon'] ?? '',

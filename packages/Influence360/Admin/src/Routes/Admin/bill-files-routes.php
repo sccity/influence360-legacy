@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Influence360\Admin\Http\Controllers\BillFiles\BillFileController;
+use Influence360\Admin\Http\Controllers\BillFiles\ActivityController;
 
 Route::prefix('bill-files')->group(function () {
     Route::controller(BillFileController::class)->group(function () {
@@ -34,4 +35,7 @@ Route::prefix('bill-files')->group(function () {
         //     Route::get('', 'index')->name('admin.bill-files.activities.index');
         // });
     });
+
+    // Activities route
+    Route::get('{id}/activities', [ActivityController::class, 'index'])->name('admin.bill-files.activities.index');
 });
