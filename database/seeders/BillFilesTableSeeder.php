@@ -3,17 +3,23 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\BillFile;
+use Illuminate\Support\Facades\DB;
 
 class BillFilesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        BillFile::factory()->count(100)->create();
+        DB::table('bill_files')->delete();
+
+         DB::table('bill_files')->insert([
+             'billid' => 'BILL001',
+             'billname' => 'Sample Bill',
+             'year' => 2024,
+             'session' => 'Spring',
+             'status' => 'In Process',
+             'sponsor' => 'John Doe',
+             'created_at' => now(),
+            'updated_at' => now(),
+         ]);
     }
 }

@@ -6,17 +6,23 @@ use Illuminate\Support\ServiceProvider;
 
 class BillFilesServiceProvider extends ServiceProvider
 {
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
     public function boot()
     {
-        // Register BillFiles views
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'BillFiles');
-
-        // Log to ensure this is being called
-        \Log::info('BillFiles views registered');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
+    /**
+     * Register services.
+     *
+     * @return void
+     */
     public function register()
     {
-        //
+        $this->app->register(ModuleServiceProvider::class);
     }
 }

@@ -15,4 +15,9 @@ return [
         'name'       => 'admin::app.contacts.organizations.index.title',
         'repository' => 'Influence360\Contact\Repositories\OrganizationRepository',
     ],
+
+    'bill_files' => [
+        'name'       => 'admin::app.bill-files.index.title',
+        'repository' => 'Influence360\BillFiles\Repositories\BillFileRepository',
+    ],
 ];

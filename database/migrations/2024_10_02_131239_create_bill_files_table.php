@@ -4,13 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBillFilesTable extends Migration
+return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('bill_files', function (Blueprint $table) {
-            $table->id();
-            $table->string('billid', 20);
+            $table->increments('id');
+            $table->string('billid', 20)->unique();
             $table->integer('year')->index();
             $table->string('session', 30);
             $table->string('billname', 255);
@@ -20,8 +23,11 @@ class CreateBillFilesTable extends Migration
         });
     }
 
-    public function down()
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
         Schema::dropIfExists('bill_files');
     }
-}
+};

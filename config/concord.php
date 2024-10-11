@@ -15,6 +15,7 @@ return [
         \Influence360\Tag\Providers\ModuleServiceProvider::class,
         \Influence360\User\Providers\ModuleServiceProvider::class,
         \Influence360\WebForm\Providers\ModuleServiceProvider::class,
+        \Influence360\BillFiles\Providers\ModuleServiceProvider::class,
     ],
 
     'register_route_models' => true,

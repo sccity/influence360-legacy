@@ -48,6 +48,7 @@ class AdminServiceProvider extends ServiceProvider
             'organizations' => \Influence360\Contact\Models\Organization::class,
             'persons'       => \Influence360\Contact\Models\Person::class,
             'warehouses'    => \Influence360\Warehouse\Models\Warehouse::class,
+            'bill_files' => \Influence360\BillFiles\Models\BillFile::class,
                 ]);
 
         $this->app->register(EventServiceProvider::class);

@@ -407,5 +407,36 @@ return [
         'name'  => 'admin::app.acl.configuration',
         'route' => 'admin.configuration.index',
         'sort'  => 9,
+    ], [
+        'key'   => 'bill_files',
+        'name'  => 'admin::app.acl.bill-files',
+        'route' => 'admin.bill-files.index',
+        'sort'  => 7,
+        'children' => [
+            [
+                'key'   => 'bill_files.create',
+                'name'  => 'admin::app.acl.create',
+                'route' => ['admin.bill-files.create', 'admin.bill-files.store'],
+                'sort'  => 1,
+            ],
+            [
+                'key'   => 'bill_files.view',
+                'name'  => 'admin::app.acl.view',
+                'route' => ['admin.bill-files.index', 'admin.bill-files.view'],
+                'sort'  => 2,
+            ],
+            [
+                'key'   => 'bill_files.edit',
+                'name'  => 'admin::app.acl.edit',
+                'route' => ['admin.bill-files.edit', 'admin.bill-files.update'],
+                'sort'  => 3,
+            ],
+            [
+                'key'   => 'bill_files.delete',
+                'name'  => 'admin::app.acl.delete',
+                'route' => ['admin.bill-files.delete', 'admin.bill-files.mass-delete'],
+                'sort'  => 4,
+            ],
+        ],
     ],
 ];

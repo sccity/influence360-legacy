@@ -4,6 +4,8 @@ return [
     'acl' => [
         'initiatives'           => 'Initiatives',
         'initiative'            => 'Initiative',
+        'bill-files'            => 'Bill Files',
+        'bill-file'             => 'Bill File',
         'quotes'          => 'Quotes',
         'mail'            => 'Mail',
         'inbox'           => 'Inbox',
@@ -40,7 +42,15 @@ return [
         'export'          => 'Export',
         'mass-delete'     => 'Mass Delete',
     ],
-
+    'bill-files' => [
+        'index' => [
+            'title' => 'Bill Files',
+        ],
+        'view' => [
+            'title' => 'Bill File: :billname',
+            'about-bill-file' => 'About Bill File',
+        ],
+    ],
     'users' => [
         'activate-warning' => 'Your account is not activated yet. Please contact the administrator.',
         'login-error'      => 'The credentials do not match our records.',
@@ -128,6 +138,8 @@ return [
 
                 'activity' => [
                     'btn'           => 'Activity',
+                    'bill-files'    => 'Bill Files',
+                    'select-bills'  => 'Select Bill Files',
                     'title'         => 'Add Activity',
                     'title-control' => 'Title',
                     'description'   => 'Description',
@@ -1496,6 +1508,7 @@ return [
             'title'      => 'Activities',
 
             'datagrid' => [
+                'bill-files' => 'Bill Files',
                 'comment'       => 'Comment',
                 'created_at'    => 'Created At',
                 'created_by'    => 'Created By',
@@ -1915,7 +1928,7 @@ return [
         'dashboard'            => 'Dashboard',
         'initiatives'                => 'Initiatives',
         'quotes'               => 'Quotes',
-        'bill-files' => 'Bill Files',
+        'bill-files'           => 'Bill Files',
         'quote'                => 'Quote',
         'mail'                 => [
             'title'   => 'Mail',

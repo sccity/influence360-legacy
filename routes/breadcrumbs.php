@@ -425,14 +425,38 @@ Breadcrumbs::for('dashboard.account.edit', function (BreadcrumbTrail $trail, $us
     $trail->push(trans('admin::app.account.edit.title'), route('admin.user.account.edit', $user->id));
 });
 
-// Bill-Files Index
-Breadcrumbs::for('admin.bill-files.index', function ($trail) {
+// Dashboard > Bill Files
+Breadcrumbs::for('admin.bill-files.index', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push(__('admin::app.bill-files.index.title'), route('admin.bill-files.index'));
+    $trail->push(trans('admin::app.layouts.bill-files'), route('admin.bill-files.index'));
 });
 
-// Bill-Files View
-Breadcrumbs::for('admin.bill-files.view', function ($trail, $billFile) {
+// Dashboard > Bill Files > Create
+Breadcrumbs::for('admin.bill-files.create', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.bill-files.index');
+    $trail->push(trans('admin::app.bill-files.create.title'), route('admin.bill-files.create'));
+});
+
+// Dashboard > Bill Files > Edit
+Breadcrumbs::for('admin.bill-files.edit', function (BreadcrumbTrail $trail, $billFile) {
+    $trail->parent('admin.bill-files.index');
+    $trail->push(trans('admin::app.bill-files.edit.title'), route('admin.bill-files.edit', $billFile->id));
+});
+
+// Dashboard > Bill Files > View
+Breadcrumbs::for('admin.bill-files.view', function (BreadcrumbTrail $trail, $billFile) {
+    $trail->parent('admin.bill-files.index');
+    $trail->push('#'.$billFile->id, route('admin.bill-files.view', $billFile->id));
+});
+
+// Bill Files Index
+Breadcrumbs::for('bill-files.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Bill Files', route('admin.bill-files.index'));
+});
+
+// Bill Files View
+Breadcrumbs::for('bill-files.view', function (BreadcrumbTrail $trail, $billFile) {
+    $trail->parent('bill-files.index');
     $trail->push($billFile->billname, route('admin.bill-files.view', $billFile->id));
 });

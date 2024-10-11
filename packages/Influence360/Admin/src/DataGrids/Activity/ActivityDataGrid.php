@@ -27,18 +27,22 @@ class ActivityDataGrid extends DataGrid
                 'initiatives.initiative_pipeline_id',
                 'users.id as created_by_id',
                 'users.name as created_by',
+                DB::raw('GROUP_CONCAT(DISTINCT bill_files.billname SEPARATOR ", ") as bill_files')
             )
             ->leftJoin('activity_participants', 'activities.id', '=', 'activity_participants.activity_id')
             ->leftJoin('initiative_activities', 'activities.id', '=', 'initiative_activities.activity_id')
             ->leftJoin('initiatives', 'initiative_activities.initiative_id', '=', 'initiatives.id')
             ->leftJoin('users', 'activities.user_id', '=', 'users.id')
+            ->leftJoin('bill_file_activities', 'activities.id', '=', 'bill_file_activities.activity_id')
+            ->leftJoin('bill_files', 'bill_file_activities.bill_file_id', '=', 'bill_files.id')
             ->whereIn('type', ['call', 'emailmsg', 'meeting', 'lunch'])
             ->where(function ($query) {
                 if ($userIds = bouncer()->getAuthorizedUserIds()) {
                     $query->whereIn('activities.user_id', $userIds)
                         ->orWhereIn('activity_participants.user_id', $userIds);
                 }
-            });
+            })
+            ->groupBy('activities.id');
 
         $this->addFilter('id', 'activities.id');
         $this->addFilter('title', 'activities.title');
@@ -47,6 +51,7 @@ class ActivityDataGrid extends DataGrid
         $this->addFilter('created_by_id', 'users.name');
         $this->addFilter('created_at', 'activities.created_at');
         $this->addFilter('initiative_title', 'initiatives.title');
+        $this->addFilter('bill_files', 'bill_files.billname');
 
         return $queryBuilder;
     }
@@ -175,6 +180,15 @@ class ActivityDataGrid extends DataGrid
             'searchable' => true,
             'filterable' => true,
             'closure'    => fn ($row) => core()->formatDate($row->created_at),
+        ]);
+
+        $this->addColumn([
+            'index'      => 'bill_files',
+            'label'      => trans('admin::app.activities.index.datagrid.bill-files'),
+            'type'       => 'string',
+            'searchable' => true,
+            'filterable' => true,
+            'sortable'   => false,
         ]);
     }
 

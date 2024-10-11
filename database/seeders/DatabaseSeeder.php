@@ -52,6 +52,8 @@ class DatabaseSeeder extends Seeder
             WebFormsTableSeeder::class,
             WebhooksTableSeeder::class,
             WorkflowsTableSeeder::class,
+            BillFilesTableSeeder::class,
+
         ]);
     }
 }

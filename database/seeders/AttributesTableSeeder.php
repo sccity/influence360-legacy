@@ -3,24 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AttributesTableSeeder extends Seeder
 {
-
-    /**
-     * Auto generated seed file
-     *
-     * @return void
-     */
     public function run()
     {
-
-
-        \DB::table('attributes')->delete();
-
-        \DB::table('attributes')->insert(array (
-            0 =>
-            array (
+        $attributes = [
+            [
                 'id' => 19,
                 'code' => 'title',
                 'name' => 'Title',
@@ -35,9 +25,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            1 =>
-            array (
+            ],
+            [
                 'id' => 20,
                 'code' => 'description',
                 'name' => 'Description',
@@ -52,9 +41,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            2 =>
-            array (
+            ],
+            [
                 'id' => 21,
                 'code' => 'initiative_value',
                 'name' => 'Value',
@@ -69,9 +57,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            3 =>
-            array (
+            ],
+            [
                 'id' => 22,
                 'code' => 'initiative_source_id',
                 'name' => 'Source',
@@ -86,9 +73,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            4 =>
-            array (
+            ],
+            [
                 'id' => 23,
                 'code' => 'initiative_type_id',
                 'name' => 'Type',
@@ -103,9 +89,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            5 =>
-            array (
+            ],
+            [
                 'id' => 24,
                 'code' => 'user_id',
                 'name' => 'Owner',
@@ -120,9 +105,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            6 =>
-            array (
+            ],
+            [
                 'id' => 25,
                 'code' => 'expected_close_date',
                 'name' => 'Projected Outcome Date',
@@ -137,9 +121,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            7 =>
-            array (
+            ],
+            [
                 'id' => 26,
                 'code' => 'initiative_pipeline_id',
                 'name' => 'Pipeline',
@@ -154,9 +137,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            8 =>
-            array (
+            ],
+            [
                 'id' => 27,
                 'code' => 'initiative_pipeline_stage_id',
                 'name' => 'Stage',
@@ -171,9 +153,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            9 =>
-            array (
+            ],
+            [
                 'id' => 28,
                 'code' => 'name',
                 'name' => 'Name',
@@ -188,9 +169,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            10 =>
-            array (
+            ],
+            [
                 'id' => 29,
                 'code' => 'emails',
                 'name' => 'Emails',
@@ -205,9 +185,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            11 =>
-            array (
+            ],
+            [
                 'id' => 30,
                 'code' => 'contact_numbers',
                 'name' => 'Contact Numbers',
@@ -222,9 +201,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            12 =>
-            array (
+            ],
+            [
                 'id' => 31,
                 'code' => 'job_title',
                 'name' => 'Job Title',
@@ -239,9 +217,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            13 =>
-            array (
+            ],
+            [
                 'id' => 32,
                 'code' => 'user_id',
                 'name' => 'Owner',
@@ -256,9 +233,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            14 =>
-            array (
+            ],
+            [
                 'id' => 33,
                 'code' => 'organization_id',
                 'name' => 'Organization',
@@ -273,9 +249,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            15 =>
-            array (
+            ],
+            [
                 'id' => 34,
                 'code' => 'name',
                 'name' => 'Name',
@@ -290,9 +265,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            16 =>
-            array (
+            ],
+            [
                 'id' => 35,
                 'code' => 'address',
                 'name' => 'Address',
@@ -307,9 +281,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            17 =>
-            array (
+            ],
+            [
                 'id' => 36,
                 'code' => 'user_id',
                 'name' => 'Owner',
@@ -324,9 +297,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            18 =>
-            array (
+            ],
+            [
                 'id' => 37,
                 'code' => 'name',
                 'name' => 'Name',
@@ -341,9 +313,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            19 =>
-            array (
+            ],
+            [
                 'id' => 38,
                 'code' => 'description',
                 'name' => 'Description',
@@ -358,9 +329,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            20 =>
-            array (
+            ],
+            [
                 'id' => 39,
                 'code' => 'sku',
                 'name' => 'SKU',
@@ -375,9 +345,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            21 =>
-            array (
+            ],
+            [
                 'id' => 40,
                 'code' => 'quantity',
                 'name' => 'Quantity',
@@ -392,9 +361,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            22 =>
-            array (
+            ],
+            [
                 'id' => 41,
                 'code' => 'price',
                 'name' => 'Price',
@@ -409,9 +377,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            23 =>
-            array (
+            ],
+            [
                 'id' => 42,
                 'code' => 'user_id',
                 'name' => 'Owner',
@@ -426,9 +393,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            24 =>
-            array (
+            ],
+            [
                 'id' => 43,
                 'code' => 'subject',
                 'name' => 'Subject',
@@ -443,9 +409,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            25 =>
-            array (
+            ],
+            [
                 'id' => 44,
                 'code' => 'description',
                 'name' => 'Description',
@@ -460,9 +425,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            26 =>
-            array (
+            ],
+            [
                 'id' => 45,
                 'code' => 'billing_address',
                 'name' => 'Billing Address',
@@ -477,9 +441,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            27 =>
-            array (
+            ],
+            [
                 'id' => 46,
                 'code' => 'shipping_address',
                 'name' => 'Shipping Address',
@@ -494,9 +457,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            28 =>
-            array (
+            ],
+            [
                 'id' => 47,
                 'code' => 'discount_percent',
                 'name' => 'Discount Percent',
@@ -511,9 +473,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            29 =>
-            array (
+            ],
+            [
                 'id' => 48,
                 'code' => 'discount_amount',
                 'name' => 'Discount Amount',
@@ -528,9 +489,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            30 =>
-            array (
+            ],
+            [
                 'id' => 49,
                 'code' => 'tax_amount',
                 'name' => 'Tax Amount',
@@ -545,9 +505,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            31 =>
-            array (
+            ],
+            [
                 'id' => 50,
                 'code' => 'adjustment_amount',
                 'name' => 'Adjustment Amount',
@@ -562,9 +521,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            32 =>
-            array (
+            ],
+            [
                 'id' => 51,
                 'code' => 'sub_total',
                 'name' => 'Sub Total',
@@ -579,9 +537,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            33 =>
-            array (
+            ],
+            [
                 'id' => 52,
                 'code' => 'grand_total',
                 'name' => 'Grand Total',
@@ -596,9 +553,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            34 =>
-            array (
+            ],
+            [
                 'id' => 53,
                 'code' => 'expired_at',
                 'name' => 'Expired At',
@@ -613,9 +569,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            35 =>
-            array (
+            ],
+            [
                 'id' => 54,
                 'code' => 'person_id',
                 'name' => 'Person',
@@ -630,9 +585,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            36 =>
-            array (
+            ],
+            [
                 'id' => 55,
                 'code' => 'name',
                 'name' => 'Name',
@@ -647,9 +601,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            37 =>
-            array (
+            ],
+            [
                 'id' => 56,
                 'code' => 'description',
                 'name' => 'Description',
@@ -664,9 +617,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            38 =>
-            array (
+            ],
+            [
                 'id' => 57,
                 'code' => 'contact_name',
                 'name' => 'Contact Name',
@@ -681,9 +633,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            39 =>
-            array (
+            ],
+            [
                 'id' => 58,
                 'code' => 'contact_emails',
                 'name' => 'Contact Emails',
@@ -698,9 +649,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            40 =>
-            array (
+            ],
+            [
                 'id' => 59,
                 'code' => 'contact_numbers',
                 'name' => 'Contact Numbers',
@@ -715,9 +665,8 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-            41 =>
-            array (
+            ],
+            [
                 'id' => 60,
                 'code' => 'contact_address',
                 'name' => 'Contact Address',
@@ -732,9 +681,67 @@ class AttributesTableSeeder extends Seeder
                 'is_user_defined' => 0,
                 'created_at' => '2024-10-01 08:36:21',
                 'updated_at' => '2024-10-01 08:36:21',
-            ),
-        ));
+            ],
+        ];
 
+        $billFileAttributes = [
+            [
+                'id' => 61,
+                'code' => 'billid',
+                'name' => 'Bill ID',
+                'type' => 'text',
+                'lookup_type' => null,
+                'entity_type' => 'bill_files',
+                'sort_order' => 1,
+                'validation' => null,
+                'is_required' => 1,
+                'is_unique' => 1,
+                'quick_add' => 1,
+                'is_user_defined' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 62,
+                'code' => 'billname',
+                'name' => 'Bill Name',
+                'type' => 'text',
+                'lookup_type' => null,
+                'entity_type' => 'bill_files',
+                'sort_order' => 2,
+                'validation' => null,
+                'is_required' => 1,
+                'is_unique' => 0,
+                'quick_add' => 1,
+                'is_user_defined' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
 
+        $attributes = array_merge($attributes, $billFileAttributes);
+
+        foreach ($attributes as $attribute) {
+            try {
+                DB::table('attributes')->updateOrInsert(
+                    [
+                        'code' => $attribute['code'],
+                        'entity_type' => $attribute['entity_type']
+                    ],
+                    $attribute
+                );
+            } catch (\Illuminate\Database\QueryException $e) {
+                // If there's a duplicate entry, we'll update the existing record
+                if ($e->errorInfo[1] == 1062) {
+                    DB::table('attributes')
+                        ->where('code', $attribute['code'])
+                        ->where('entity_type', $attribute['entity_type'])
+                        ->update($attribute);
+                } else {
+                    // If it's not a duplicate entry error, we'll rethrow the exception
+                    throw $e;
+                }
+            }
+        }
     }
 }

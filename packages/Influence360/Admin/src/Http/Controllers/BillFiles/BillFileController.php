@@ -1,21 +1,97 @@
 <?php
+
 namespace Influence360\Admin\Http\Controllers\BillFiles;
 
-use App\Http\Controllers\Controller;
-use App\Models\BillFile;
+use Influence360\Admin\Http\Controllers\Controller;
+use Influence360\BillFiles\Repositories\BillFileRepository;
 use Illuminate\Http\Request;
+use Influence360\Admin\DataGrids\BillFiles\BillFileDataGrid;
 
 class BillFileController extends Controller
 {
-    public function index()
+    public function __construct(protected BillFileRepository $billFileRepository)
     {
-        $billFiles = BillFile::paginate(10); // Pagination for large datasets
-        return view('admin::bill-files.index', compact('billFiles'));
+        request()->request->add(['entity_type' => 'bill_files']);
     }
 
-    public function view($id)
+    public function index()
     {
-        $billFile = BillFile::findOrFail($id);
+        if (request()->ajax()) {
+            return app(BillFileDataGrid::class)->toJson();
+        }
+
+        return view('admin::bill-files.index');
+    }
+
+    public function create()
+    {
+        return view('admin::bill-files.create');
+    }
+
+    public function store(Request $request)
+    {
+        $billFile = $this->billFileRepository->create($request->all());
+
+        session()->flash('success', trans('admin::app.bill-files.create-success'));
+
+        return redirect()->route('admin.bill-files.index');
+    }
+
+    public function show($id)
+    {
+        $billFile = $this->billFileRepository->findOrFail($id);
+
         return view('admin::bill-files.view', compact('billFile'));
+    }
+
+    public function edit($id)
+    {
+        $billFile = $this->billFileRepository->findOrFail($id);
+
+        return view('admin::bill-files.edit', compact('billFile'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $billFile = $this->billFileRepository->update($request->all(), $id);
+
+        session()->flash('success', trans('admin::app.bill-files.update-success'));
+
+        return redirect()->route('admin.bill-files.index');
+    }
+
+    public function search()
+    {
+        $results = $this->billFileRepository->search(request()->input('query'));
+
+        return response()->json($results);
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $this->billFileRepository->delete($id);
+
+            return response()->json([
+                'message' => trans('admin::app.bill-files.delete-success'),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => trans('admin::app.bill-files.delete-failed'),
+            ], 500);
+        }
+    }
+
+    public function massDestroy(Request $request)
+    {
+        $billFileIds = $request->input('indices');
+
+        foreach ($billFileIds as $billFileId) {
+            $this->billFileRepository->delete($billFileId);
+        }
+
+        return response()->json([
+            'message' => trans('admin::app.bill-files.mass-delete-success'),
+        ]);
     }
 }

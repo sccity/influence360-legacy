@@ -46,4 +46,10 @@ return [
         'name'         => 'Locations',
         'repository'   => 'Influence360\Warehouse\Repositories\LocationRepository',
     ],
+
+    'bill_files' => [
+        'name'         => 'Bill Files',
+        'repository'   => 'Influence360\BillFiles\Repositories\BillFileRepository',
+        'label_column' => 'billname',
+    ],
 ];

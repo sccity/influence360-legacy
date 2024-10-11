@@ -30,7 +30,7 @@ return [
         'key'        => 'bill-files',
         'name'       => 'admin::app.layouts.bill-files', // Make sure this translation exists
         'route'      => 'admin.bill-files.index',
-        'sort'       => 5,
+        'sort'       => 2,
         'icon-class' => 'icon-file', // Replace with an appropriate icon class
     ],
 

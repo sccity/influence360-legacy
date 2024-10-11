@@ -8,6 +8,7 @@ use Influence360\Contact\Models\PersonProxy;
 use Influence360\Initiative\Models\InitiativeProxy;
 use Influence360\User\Models\UserProxy;
 use Influence360\Warehouse\Models\WarehouseProxy;
+use Influence360\BillFiles\Models\BillFileProxy;
 
 class Activity extends Model implements ActivityContract
 {
@@ -98,5 +99,13 @@ class Activity extends Model implements ActivityContract
     public function warehouses()
     {
         return $this->belongsToMany(WarehouseProxy::modelClass(), 'warehouse_activities');
+    }
+
+    /**
+     * The bill files that belong to the activity.
+     */
+    public function billFiles()
+    {
+        return $this->belongsToMany(BillFileProxy::modelClass(), 'bill_file_activities');
     }
 }

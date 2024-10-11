@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # A script to clear Laravel caches and configurations
+echo "Rebuilding Composer Autoload..."
+composer dump-autoload
 
 echo "Clearing application cache..."
 php artisan cache:clear
@@ -20,4 +22,10 @@ php artisan config:cache
 echo "Rebuilding route cache..."
 php artisan route:cache
 
+echo "Optimizing.."
+php artisan optimize
+
 echo "All caches cleared and rebuilt successfully."
+
+echo "Running fresh migrations and seeders..."
+php artisan migrate:fresh --seed
