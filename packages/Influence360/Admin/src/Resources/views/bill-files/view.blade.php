@@ -16,17 +16,6 @@
                     <x-admin::breadcrumbs name="admin.bill-files.view" :entity="$billFile" />
                 </div>
 
-                {!! view_render_event('admin.bill-files.view.tags.before', ['billFile' => $billFile]) !!}
-
-                <!-- Tags -->
-                <x-admin::tags
-                    :attach-endpoint="route('admin.bill-files.tags.attach', $billFile->id)"
-                    :detach-endpoint="route('admin.bill-files.tags.detach', $billFile->id)"
-                    :added-tags="$billFile->tags"
-                />
-
-                {!! view_render_event('admin.bill-files.view.tags.after', ['billFile' => $billFile]) !!}
-
                 <!-- Title -->
                 <div class="mb-4 flex flex-col gap-0.5">
                     {!! view_render_event('admin.bill-files.view.title.before', ['billFile' => $billFile]) !!}
@@ -36,12 +25,12 @@
                     </h3>
 
                     <p class="dark:text-white">
-                        Bill ID: {{ $billFile->billid }}
+                        @lang('admin::app.bill-files.view.bill-id'): {{ $billFile->billid }}
                     </p>
 
                     {!! view_render_event('admin.bill-files.view.title.after', ['billFile' => $billFile]) !!}
                 </div>
-                
+
                 <!-- Activity Actions -->
                 <div class="flex flex-wrap gap-2">
                     {!! view_render_event('admin.bill-files.view.actions.before', ['billFile' => $billFile]) !!}

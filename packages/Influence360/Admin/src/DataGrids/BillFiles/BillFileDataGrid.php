@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Influence360\DataGrid\DataGrid;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Influence360\BillFiles\Models\BillFile;
 
 class BillFileDataGrid extends DataGrid
 {
@@ -49,7 +50,7 @@ class BillFileDataGrid extends DataGrid
         try {
             $this->addColumn([
                 'index'      => 'id',
-                'label'      => trans('admin::app.bill-files.id'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.id'),
                 'type'       => 'integer',
                 'searchable' => false,
                 'sortable'   => true,
@@ -58,7 +59,7 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'billid',
-                'label'      => trans('admin::app.bill-files.billid'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.billid'),
                 'type'       => 'string',
                 'searchable' => true,
                 'sortable'   => true,
@@ -67,7 +68,7 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'billname',
-                'label'      => trans('admin::app.bill-files.billname'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.billname'),
                 'type'       => 'string',
                 'searchable' => true,
                 'sortable'   => true,
@@ -76,7 +77,7 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'year',
-                'label'      => trans('admin::app.bill-files.year'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.year'),
                 'type'       => 'integer',
                 'searchable' => true,
                 'sortable'   => true,
@@ -85,7 +86,7 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'session',
-                'label'      => trans('admin::app.bill-files.session'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.session'),
                 'type'       => 'string',
                 'searchable' => true,
                 'sortable'   => true,
@@ -94,7 +95,7 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'sponsor',
-                'label'      => trans('admin::app.bill-files.sponsor'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.sponsor'),
                 'type'       => 'string',
                 'searchable' => true,
                 'sortable'   => true,
@@ -103,23 +104,27 @@ class BillFileDataGrid extends DataGrid
 
             $this->addColumn([
                 'index'      => 'status',
-                'label'      => trans('admin::app.bill-files.status'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.status'),
                 'type'       => 'string',
                 'searchable' => true,
                 'sortable'   => true,
                 'filterable' => true,
+                'closure'    => function ($row) {
+                    return $row->status;
+                },
             ]);
 
             $this->addColumn([
                 'index'      => 'created_at',
-                'label'      => trans('admin::app.bill-files.created-at'),
+                'label'      => trans('admin::app.bill-files.index.datagrid.created_at'),
                 'type'       => 'datetime',
                 'searchable' => true,
                 'sortable'   => true,
                 'filterable' => true,
             ]);
+
         } catch (\Exception $e) {
-            Log::error('Error in BillFileDataGrid prepareColumns: ' . $e->getMessage());
+            Log::error('Error in prepareColumns: ' . $e->getMessage());
             Log::error($e->getTraceAsString());
             throw $e;
         }
@@ -132,7 +137,7 @@ class BillFileDataGrid extends DataGrid
         try {
             Log::info('Attempting to add View action');
             $this->addAction([
-                'title'  => 'View',
+                'title'  => trans('admin::app.bill-files.index.datagrid.view'),
                 'method' => 'GET',
                 'route'  => 'admin.bill-files.view',
                 'icon'   => 'icon-view',
@@ -141,27 +146,39 @@ class BillFileDataGrid extends DataGrid
                 },
             ]);
             Log::info('View action added successfully');
-            
-            // Add more actions here if needed
+
+            Log::info('Attempting to add Edit action');
+            $this->addAction([
+                'title'  => trans('admin::app.bill-files.index.datagrid.edit'),
+                'method' => 'GET',
+                'route'  => 'admin.bill-files.edit',
+                'icon'   => 'icon-edit',
+                'url'    => function ($row) {
+                    return route('admin.bill-files.edit', $row->id);
+                },
+            ]);
+            Log::info('Edit action added successfully');
             
             Log::info('All actions added successfully');
         } catch (\Exception $e) {
             Log::error('Error in prepareActions: ' . $e->getMessage());
             Log::error($e->getTraceAsString());
-            throw $e; // Re-throw the exception to stop execution
+            throw $e;
         }
     }
 
-    public function prepareMassActions(): void
+    public function prepareMassActions()
     {
         try {
             $this->addMassAction([
-                'index'  => 'mass_delete',
-                'icon'   => 'icon-trash',
-                'title'  => trans('admin::app.bill-files.delete'),
+                'type'   => 'delete',
+                'label'  => trans('admin::app.bill-files.index.datagrid.delete'),
+                'action' => route('admin.bill-files.mass-delete'),
+                'url'    => route('admin.bill-files.mass-delete'),  // Add this line
                 'method' => 'POST',
-                'url'    => route('admin.bill-files.mass-delete'),
+                'title'  => trans('admin::app.bill-files.index.datagrid.delete'),
             ]);
+            Log::info('Mass action added successfully');
         } catch (\Exception $e) {
             Log::error('Error in BillFileDataGrid prepareMassActions: ' . $e->getMessage());
             Log::error($e->getTraceAsString());
@@ -169,7 +186,6 @@ class BillFileDataGrid extends DataGrid
         }
     }
 
-    // If there's a toJson method in this class, add logging there as well
     public function toJson()
     {
         try {

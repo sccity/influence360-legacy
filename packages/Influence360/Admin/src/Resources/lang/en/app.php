@@ -45,6 +45,16 @@ return [
     'bill-files' => [
         'index' => [
             'title' => 'Bill Files',
+            'datagrid' => [
+                'id' => 'ID',
+                'bill_name' => 'Bill Name',
+                'year' => 'Year',
+                'session' => 'Session',
+                'status' => 'Status',
+                'sponsor' => 'Sponsor',
+                'created_at' => 'Created At',
+                'updated_at' => 'Updated At',
+            ],
         ],
         'view' => [
             'title' => 'Bill File: :billname',
