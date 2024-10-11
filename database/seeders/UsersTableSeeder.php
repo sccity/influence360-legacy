@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Influence360\User\Models\Role;
+use Influence360\User\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -35,6 +37,14 @@ class UsersTableSeeder extends Seeder
             ),
         ));
 
+        // Ensure the Administrator role exists
+        $adminRole = Role::firstOrCreate(['name' => 'Administrator']);
 
+        // Ensure the Administrator user is assigned the Administrator role
+        $adminUser = User::find(1); // Assuming the Administrator user has ID 1
+        if ($adminUser) {
+            $adminUser->role_id = $adminRole->id;
+            $adminUser->save();
+        }
     }
 }

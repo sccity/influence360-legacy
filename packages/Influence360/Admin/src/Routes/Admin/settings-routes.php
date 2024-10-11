@@ -12,9 +12,6 @@ use Influence360\Admin\Http\Controllers\Settings\SourceController;
 use Influence360\Admin\Http\Controllers\Settings\TagController;
 use Influence360\Admin\Http\Controllers\Settings\TypeController;
 use Influence360\Admin\Http\Controllers\Settings\UserController;
-use Influence360\Admin\Http\Controllers\Settings\Warehouse\ActivityController;
-use Influence360\Admin\Http\Controllers\Settings\Warehouse\TagController as WarehouseTagController;
-use Influence360\Admin\Http\Controllers\Settings\Warehouse\WarehouseController;
 use Influence360\Admin\Http\Controllers\Settings\WebFormController;
 use Influence360\Admin\Http\Controllers\Settings\WebhookController;
 use Influence360\Admin\Http\Controllers\Settings\WorkflowController;
@@ -227,51 +224,8 @@ Route::prefix('settings')->group(function () {
         Route::get('download', 'download')->name('admin.settings.attributes.download');
     });
 
-    /**
-     * Warehouses Routes.
-     */
-    Route::controller(WarehouseController::class)->prefix('warehouses')->group(function () {
-        Route::put('edit/{id}', 'update')->name('admin.settings.warehouses.update');
 
-        Route::get('', 'index')->name('admin.settings.warehouses.index');
 
-        Route::get('search', 'search')->name('admin.settings.warehouses.search');
-
-        Route::get('{id}/products', 'products')->name('admin.settings.warehouses.products.index');
-
-        Route::get('create', 'create')->name('admin.settings.warehouses.create');
-
-        Route::post('create', 'store')->name('admin.settings.warehouses.store');
-
-        Route::get('view/{id}', 'view')->name('admin.settings.warehouses.view');
-
-        Route::get('edit/{id?}', 'edit')->name('admin.settings.warehouses.edit');
-
-        Route::delete('{id}', 'destroy')->name('admin.settings.warehouses.delete');
-
-        Route::controller(WarehouseTagController::class)->prefix('{id}/tags')->group(function () {
-            Route::post('', 'attach')->name('admin.settings.warehouses.tags.attach');
-
-            Route::delete('', 'detach')->name('admin.settings.warehouses.tags.detach');
-        });
-
-        Route::controller(ActivityController::class)->prefix('{id}/activities')->group(function () {
-            Route::get('', 'index')->name('admin.settings.warehouse.activities.index');
-        });
-    });
-
-    /**
-     * Warehouses Location Routes.
-     */
-    Route::controller(LocationController::class)->prefix('locations')->group(function () {
-        Route::get('search', 'search')->name('admin.settings.locations.search');
-
-        Route::post('create', 'store')->name('admin.settings.locations.store');
-
-        Route::put('edit/{id}', 'update')->name('admin.settings.locations.update');
-
-        Route::delete('{id}', 'destroy')->name('admin.settings.locations.delete');
-    });
 
     /**
      * Email Templates Routes.

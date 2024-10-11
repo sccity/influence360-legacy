@@ -56,7 +56,5 @@ Route::controller(InitiativeController::class)->prefix('initiatives')->group(fun
         Route::delete('', 'detach')->name('admin.initiatives.emails.detach');
     });
 
-    Route::controller(QuoteController::class)->prefix('{id}/quotes')->group(function () {
-        Route::delete('{quote_id?}', 'delete')->name('admin.initiatives.quotes.delete');
-    });
+  
 });

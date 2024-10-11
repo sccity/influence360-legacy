@@ -38,7 +38,7 @@ require 'activities-routes.php';
 /**
  * Quotes routes.
  */
-require 'quote-routes.php';
+//require 'quote-routes.php';
 
 /**
  * Configuration routes.

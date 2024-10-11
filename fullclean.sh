@@ -27,3 +27,5 @@ php artisan optimize
 
 echo "All caches cleared and rebuilt successfully."
 
+echo "Running fresh migrations and seeders..."
+php artisan migrate:fresh --seed

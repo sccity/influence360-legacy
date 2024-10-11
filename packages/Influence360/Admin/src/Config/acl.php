@@ -439,4 +439,31 @@ return [
             ],
         ],
     ],
+    'bill-files' => [
+        'name' => 'admin::app.acl.bill-files',
+        'route' => 'admin.bill-files.index',
+        'sort' => 3,
+        'children' => [
+            'view' => [
+                'name' => 'admin::app.acl.view',
+                'routes' => ['admin.bill-files.index', 'admin.bill-files.view'],
+                'sort' => 1,
+            ],
+            'create' => [
+                'name' => 'admin::app.acl.create',
+                'routes' => ['admin.bill-files.create', 'admin.bill-files.store'],
+                'sort' => 2,
+            ],
+            'edit' => [
+                'name' => 'admin::app.acl.edit',
+                'routes' => ['admin.bill-files.edit', 'admin.bill-files.update'],
+                'sort' => 3,
+            ],
+            'delete' => [
+                'name' => 'admin::app.acl.delete',
+                'routes' => ['admin.bill-files.delete', 'admin.bill-files.mass-delete'],
+                'sort' => 4,
+            ],
+        ],
+    ],
 ];

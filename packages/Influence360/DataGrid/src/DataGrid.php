@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use Influence360\Admin\Exports\DataGridExport;
 use Influence360\DataGrid\Enums\ColumnTypeEnum;
+use Illuminate\Support\Facades\Log;
 
 abstract class DataGrid
 {
@@ -149,19 +150,29 @@ abstract class DataGrid
     /**
      * Add action.
      */
-    public function addAction(array $action): void
+    protected function addAction($action)
     {
-        $this->dispatchEvent('actions.add.before', [$this, $action]);
-        dd($action);
-        $this->actions[] = new Action(
-            index: $action['index'] ?? '',
-            icon: $action['icon'] ?? '',
-            title: $action['title'],
-            method: $action['method'],
-            url: $action['url'],
-        );
+        Log::info('Adding action in DataGrid: ' . json_encode($action));
+        try {
+            $this->dispatchEvent('actions.add.before', [$this, $action]);
 
-        $this->dispatchEvent('actions.add.after', [$this, $this->actions[count($this->actions) - 1]]);
+            $url = $action['url'] ?? ($action['route'] ? route($action['route']) : '');
+
+            $this->actions[] = new Action(
+                index: $action['index'] ?? '',
+                icon: $action['icon'] ?? '',
+                title: $action['title'],
+                method: $action['method'],
+                url: $url,
+            );
+
+            $this->dispatchEvent('actions.add.after', [$this, $this->actions[count($this->actions) - 1]]);
+            Log::info('Action added successfully');
+        } catch (\Exception $e) {
+            Log::error('Error in addAction: ' . $e->getMessage());
+            Log::error($e->getTraceAsString());
+            throw $e;
+        }
     }
 
     /**
