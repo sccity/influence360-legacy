@@ -2,52 +2,59 @@
 
 namespace Influence360\Admin\Http\Controllers\BillFiles;
 
-use Influence360\Activity\Repositories\ActivityRepository;
 use Influence360\Admin\Http\Controllers\Controller;
-use Influence360\Admin\Http\Resources\ActivityResource;
 use Influence360\BillFiles\Repositories\BillFileRepository;
-use Influence360\Email\Repositories\EmailRepository;
-use Influence360\BillFiles\Models\BillFileProxy;
-use Influence360\Attribute\Repositories\AttributeRepository;
+use Influence360\Activity\Repositories\ActivityRepository;
+use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    protected $billFileRepository;
+    protected $activityRepository;
+
     public function __construct(
-        protected ActivityRepository $activityRepository,
-        protected BillFileRepository $billFileRepository,
-        protected EmailRepository $emailRepository,
-        protected AttributeRepository $attributeRepository
-    ) {}
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id)
-    {
-        $billFile = BillFileProxy::findOrFail($id);
-        $activities = $billFile->activities()->with(['user', 'files', 'participants', 'billFiles'])->get();
-
-        $customAttributes = $this->attributeRepository->where('entity_type', 'bill_files')->get();
-
-        foreach ($activities as $activity) {
-            foreach ($customAttributes as $attribute) {
-                $activity->{$attribute->code} = $activity->getCustomAttributeValue($attribute);
-            }
-        }
-
-        return ActivityResource::collection($this->sortActivities($activities));
+        BillFileRepository $billFileRepository,
+        ActivityRepository $activityRepository
+    ) {
+        $this->billFileRepository = $billFileRepository;
+        $this->activityRepository = $activityRepository;
     }
 
-    protected function sortActivities($activities)
+    public function index($id)
     {
-        return $activities->sortByDesc('id')->sortByDesc('created_at');
+        \Log::info("Fetching activities for bill file: " . $id);
+        $billFile = $this->billFileRepository->findOrFail($id);
+        $activities = $billFile->activities()->orderBy('created_at', 'desc')->get();
+        \Log::info("Activities found: " . $activities->count());
+        return response()->json($activities);
+    }
+
+    public function store(Request $request, $id)
+    {
+        try {
+            \Log::info('Attempting to create activity for bill file: ' . $id);
+            \Log::info('Request data: ' . json_encode($request->all()));
+
+            $billFile = $this->billFileRepository->findOrFail($id);
+
+            $activityData = array_merge($request->all(), [
+                'parent_type' => get_class($billFile),
+                'parent_id' => $billFile->id,
+                'user_id' => auth()->id(),
+            ]);
+
+            \Log::info('Activity data: ' . json_encode($activityData));
+
+            $activity = $this->activityRepository->create($activityData);
+
+            \Log::info('Activity created successfully: ' . $activity->id);
+
+            
+            return response()->json($activity, 201);
+        } catch (\Exception $e) {
+            \Log::error('Error creating activity for bill file: ' . $e->getMessage());
+            \Log::error('Stack trace: ' . $e->getTraceAsString());
+            return response()->json(['error' => 'Failed to create activity: ' . $e->getMessage()], 500);
+        }
     }
 }

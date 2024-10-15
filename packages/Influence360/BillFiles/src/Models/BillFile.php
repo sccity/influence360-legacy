@@ -39,6 +39,6 @@ class BillFile extends Model implements BillFileContract
 
     public function activities()
     {
-        return $this->belongsToMany(ActivityProxy::modelClass(), 'bill_file_activities');
+        return $this->morphMany(ActivityProxy::modelClass(), 'parent');
     }
 }

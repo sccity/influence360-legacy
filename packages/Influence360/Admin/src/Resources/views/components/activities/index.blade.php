@@ -61,6 +61,7 @@
 
                         <!-- Activity List -->
                         <div class="flex flex-col gap-4">
+                           
                             {!! view_render_event('admin.components.activities.content.activity.item.before') !!}
 
                             <!-- Activity Item -->
@@ -520,18 +521,19 @@
 
             computed: {
                 filteredActivities() {
-                    if (this.selectedType == 'all') {
+                    if (!this.activities) return [];
+                    if (this.selectedType === 'all') {
                         return this.activities;
-                    } else if (this.selectedType == 'planned') {
-                        return this.activities.filter(activity => ! activity.is_done);
+                    } else if (this.selectedType === 'planned') {
+                        return this.activities.filter(activity => !activity.is_done);
                     }
-
-                    return this.activities.filter(activity => activity.type == this.selectedType);
+                    return this.activities.filter(activity => activity.type === this.selectedType);
                 }
             },
 
             mounted() {
-                this.get();
+                console.log("Activities component mounted");
+                this.fetchActivities();
 
                 if (this.extraTypes?.length) {
                     this.extraTypes.forEach(type => {
@@ -543,17 +545,18 @@
             },
 
             methods: {
-                get() {
+                fetchActivities() {
+                    console.log("Fetching activities from:", this.endpoint);
                     this.isLoading = true;
-
-                    this.$axios.get(this.endpoint)
+                    axios.get(this.endpoint)
                         .then(response => {
-                            this.activities = response.data.data;
-
+                            console.log("Activities received:", response.data);
+                            this.activities = response.data;
                             this.isLoading = false;
                         })
                         .catch(error => {
-                            console.error(error);
+                            console.error("Error fetching activities:", error);
+                            this.isLoading = false;
                         });
                 },
 

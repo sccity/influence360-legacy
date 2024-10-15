@@ -10,43 +10,31 @@ use Illuminate\Support\Facades\Log;
 
 class BillFileController extends Controller
 {
-    public function __construct(protected BillFileRepository $billFileRepository)
+    protected $billFileRepository;
+
+    public function __construct(BillFileRepository $billFileRepository)
     {
+        $this->billFileRepository = $billFileRepository;
         request()->request->add(['entity_type' => 'bill_files']);
     }
 
     public function index()
     {
         if (request()->ajax()) {
-            try {
-                $user = auth()->user();
-                Log::info('User ID: ' . $user->id);
-                Log::info('User Role: ' . $user->role->name);
-
-                Log::info('Starting BillFileDataGrid toJson');
-                $dataGrid = app(BillFileDataGrid::class);
-                Log::info('BillFileDataGrid instantiated');
-                
-                $result = $dataGrid->toJson();
-                Log::info('BillFileDataGrid toJson result: ' . substr($result, 0, 1000)); // Log first 1000 characters of result
-                
-                Log::info('BillFileDataGrid toJson completed successfully');
-                return $result;
-            } catch (\Exception $e) {
-                Log::error('Error in BillFileController index: ' . $e->getMessage());
-                Log::error($e->getTraceAsString());
-                return response()->json(['error' => $e->getMessage()], 500);
-            }
+            return app(BillFileDataGrid::class)->toJson();
         }
 
         return view('admin::bill-files.index');
     }
+
     public function show($id)
     {
         Log::info('BillFileController show method called with ID: ' . $id);
         $billFile = $this->billFileRepository->findOrFail($id);
-        return view('admin::bill-files.view', compact('billFile'));
+        $activities = $billFile->activities()->orderBy('created_at', 'desc')->get();
+        return view('admin::bill-files.view', compact('billFile', 'activities'));
     }
+
     public function create()
     {
         return view('admin::bill-files.create');

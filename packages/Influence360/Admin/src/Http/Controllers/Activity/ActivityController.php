@@ -16,6 +16,7 @@ use Influence360\Admin\Http\Controllers\Controller;
 use Influence360\Admin\Http\Requests\MassUpdateRequest;
 use Influence360\Admin\Http\Resources\ActivityResource;
 use Influence360\Attribute\Repositories\AttributeRepository;
+use Influence360\BillFiles\Repositories\BillFileRepository;
 
 class ActivityController extends Controller
 {
@@ -28,6 +29,7 @@ class ActivityController extends Controller
         protected ActivityRepository $activityRepository,
         protected FileRepository $fileRepository,
         protected AttributeRepository $attributeRepository,
+        protected BillFileRepository $billFileRepository,
     ) {}
 
     /**
@@ -65,59 +67,24 @@ class ActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(): RedirectResponse|JsonResponse
+    public function store(Request $request, $id): JsonResponse
     {
-        $this->validate(request(), [
-            'type'          => 'required',
-            'comment'       => 'required_if:type,note',
-            'schedule_from' => 'required_unless:type,note,file',
-            'schedule_to'   => 'required_unless:type,note,file',
-            'file'          => 'required_if:type,file',
-        ]);
+        try {
+            $billFile = $this->billFileRepository->findOrFail($id);
 
-        if (request('type') === 'meeting') {
-            /**
-             * Check if meeting is overlapping with other meetings.
-             */
-            $isOverlapping = $this->activityRepository->isDurationOverlapping(
-                request()->input('schedule_from'),
-                request()->input('schedule_to'),
-                request()->input('participants'),
-                request()->input('id')
-            );
-
-            if ($isOverlapping) {
-                if (request()->ajax()) {
-                    return response()->json([
-                        'message' => trans('admin::app.activities.overlapping-error'),
-                    ], 400);
-                }
-
-                session()->flash('success', trans('admin::app.activities.overlapping-error'));
-
-                return redirect()->back();
-            }
-        }
-
-        Event::dispatch('activity.create.before');
-
-        $activity = $this->activityRepository->create(array_merge(request()->all(), [
-            'is_done' => request('type') == 'note' ? 1 : 0,
-            'user_id' => auth()->guard('user')->user()->id,
-        ]));
-
-        Event::dispatch('activity.create.after', $activity);
-
-        if (request()->ajax()) {
-            return response()->json([
-                'data'    => new ActivityResource($activity),
-                'message' => trans('admin::app.activities.create-success'),
+            $activityData = array_merge($request->all(), [
+                'parent_type' => get_class($billFile),
+                'parent_id' => $billFile->id,
+                'user_id' => auth()->id(), // Ensure user_id is set
             ]);
+
+            $activity = $this->activityRepository->create($activityData);
+
+            return response()->json($activity, 201);
+        } catch (\Exception $e) {
+            \Log::error('Error creating activity for bill file: ' . $e->getMessage());
+            return response()->json(['error' => 'Failed to create activity'], 500);
         }
-
-        session()->flash('success', trans('admin::app.activities.create-success'));
-
-        return redirect()->back();
     }
 
     /**

@@ -67,7 +67,6 @@
         <div class="flex w-full flex-col gap-4 rounded-lg">
             {!! view_render_event('admin.bill-files.view.right.before', ['billFile' => $billFile]) !!}
 
-            <!-- Activities -->
             <x-admin::activities :endpoint="route('admin.bill-files.activities.index', $billFile->id)" />
 
             {!! view_render_event('admin.bill-files.view.right.after', ['billFile' => $billFile]) !!}

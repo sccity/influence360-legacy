@@ -1,6 +1,7 @@
 @props([
     'entity'            => null,
     'entityControlName' => null,
+    'storeUrl'           => null,
 ])
 
 <!-- Activity Button -->
@@ -25,6 +26,7 @@
         ref="actionComponent"
         :entity="{{ json_encode($entity) }}"
         entity-control-name="{{ $entityControlName }}"
+        store-url="{{ route('admin.bill-files.activities.store', $entity->id) }}"
     ></v-activity>
 
     {!! view_render_event('admin.components.activities.actions.activity.after') !!}
@@ -219,6 +221,11 @@
                     type: String,
                     required: true,
                     default: ''
+                },
+
+                storeUrl: {
+                    type: String,
+                    required: true
                 }
             },
 
@@ -257,8 +264,8 @@
                 save(params) {
                     this.isStoring = true;
 
-                    this.$axios.post("{{ route('admin.activities.store') }}", params)
-                        .then (response => {
+                    this.$axios.post(this.storeUrl, params)
+                        .then(response => {
                             this.isStoring = false;
 
                             this.$emitter.emit('add-flash', { type: 'success', message: response.data.message });
@@ -267,7 +274,7 @@
 
                             this.$refs.activityModal.close();
                         })
-                        .catch (error => {
+                        .catch(error => {
                             this.isStoring = false;
 
                             if (error.response.status == 422) {

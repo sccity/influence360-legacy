@@ -42,15 +42,8 @@ class Activity extends Model implements ActivityContract
      * @var array
      */
     protected $fillable = [
-        'title',
-        'type',
-        'location',
-        'comment',
-        'additional',
-        'schedule_from',
-        'schedule_to',
-        'is_done',
-        'user_id',
+        'type', 'title', 'comment', 'schedule_from', 'schedule_to',
+        'parent_type', 'parent_id', 'user_id', 'is_done'
     ];
 
     /**
@@ -102,10 +95,19 @@ class Activity extends Model implements ActivityContract
     }
 
     /**
+     * Get the parent of the activity.
+     */
+    public function parent()
+    {
+        return $this->morphTo();
+    }
+
+    /**
      * The bill files that belong to the activity.
      */
-    public function billFiles()
+    public function billFile()
     {
-        return $this->belongsToMany(BillFileProxy::modelClass(), 'bill_file_activities');
+        return $this->belongsToMany(BillFileProxy::modelClass(), 'billfile_activities');
+
     }
 }
