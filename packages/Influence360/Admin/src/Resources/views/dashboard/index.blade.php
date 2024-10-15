@@ -51,8 +51,7 @@
             @include('admin::dashboard.index.total-initiatives')
 
             <div class="flex gap-4 [&>*]:flex-1">
-                <!-- Total Products -->
-                @include('admin::dashboard.index.top-selling-products')
+
 
                 <!-- Total Persons -->
                 @include('admin::dashboard.index.top-persons')
