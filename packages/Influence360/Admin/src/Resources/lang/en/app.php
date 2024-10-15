@@ -43,10 +43,21 @@ return [
         'mass-delete'     => 'Mass Delete',
     ],
     'bill-files' => [
+        'view' => [
+            'title' => 'Bill File: :billname',
+            'bill-id' => 'Bill ID',
+            'bill-name' => 'Bill Name',
+            'year' => 'Year',
+            'session' => 'Session',
+            'status' => 'Status',
+            'sponsor' => 'Sponsor',
+        ],
         'index' => [
             'title' => 'Bill Files',
             'datagrid' => [
                 'id' => 'ID',
+                'billid' => 'Bill ID',
+                'billname' => 'Bill Name',
                 'bill_name' => 'Bill Name',
                 'year' => 'Year',
                 'session' => 'Session',
@@ -55,10 +66,6 @@ return [
                 'created_at' => 'Created At',
                 'updated_at' => 'Updated At',
             ],
-        ],
-        'view' => [
-            'title' => 'Bill File: :billname',
-            'about-bill-file' => 'About Bill File',
         ],
     ],
     'users' => [
